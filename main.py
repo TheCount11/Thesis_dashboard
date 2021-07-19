@@ -222,7 +222,7 @@ with st.beta_expander("Topical"):
             columns = st.multiselect('Select Hashtags (You can select more than one)', list(typ_df.columns)[:-1])
             columns.append("Years")
             st.write(columns)
-            plot = typ_df[[columns]]
+            plot = typ_df[columns]
             plot.set_index("Years", inplace = True)
             p = plot.melt(ignore_index = False).reset_index()
                     
