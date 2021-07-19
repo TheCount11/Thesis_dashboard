@@ -283,7 +283,7 @@ with st.beta_expander('Spatial, Temporal, Topical'):
             
          df["year-month"] = pd.to_datetime(df["year-month"]).dt.to_period('M')   
          df.set_index('year-month',inplace =True)   
-	 ext = ".png"        
+         ext = ".png" 
          mask = np.array(Image.open(OUTPUT / (lan + ext)))   
          userdf = df[df['post_language']== f'{lan}']
         
