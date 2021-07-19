@@ -20,7 +20,7 @@ from wordcloud import WordCloud, STOPWORDS
 file_main = Path(__file__).parents[0]/ 'data/german2.csv'
 df = pd.read_csv(file_main)
 
-OUTPUT = Path(__file__).parents[0]/ 'data/'
+OUTPUT = Path(__file__).parents[0]/ 'data/Mask for Wclouds/'
 
 def clean_emoji(x):
     if x == '{}':
@@ -284,7 +284,7 @@ with st.beta_expander('Spatial, Temporal, Topical'):
          df["year-month"] = pd.to_datetime(df["year-month"]).dt.to_period('M')   
          df.set_index('year-month',inplace =True)   
         
-         mask = np.array(Image.open(OUTPUT+ f"Mask for Wclouds/{lan}.png"))   
+         mask = np.array(Image.open(OUTPUT+ f"{lan}.png"))   
          userdf = df[df['post_language']== f'{lan}']
         
         
