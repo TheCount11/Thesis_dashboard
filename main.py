@@ -215,8 +215,8 @@ with st.beta_expander("Topical"):
                              Here the subset is time (Years). And the measured attribute is hashtags.""")
             st.write ("""Positive typicality indicates that the hashtag was popular during the year displayed on the x axis.
                       Negative typicality indicates the opposite""")         
-            file = Path(__file__).parents[0]/ 'data/typicality-30.csv'        
-            typ_df = pd.read_csv(file)
+            file_typ = Path(__file__).parents[0]/ 'data/typicality-30.csv'        
+            typ_df = pd.read_csv(file_typ)
             st.write(typ_df.columns)
             
             columns = st.multiselect('Select Hashtags (You can select more than one)', list(typ_df.columns)[:-1])
@@ -238,7 +238,8 @@ with st.beta_expander("Topical"):
 with st.beta_expander("Social : HLL"):   
         st.write("Visualising number of posts vs users all over Europe")
         with st.beta_container():
-            grid_data = pd.read_csv("https://github.com/TheCount11/Thesis_dashboard_1/blob/master/data/latlng_to_geohash.csv",sep ='delimiter')
+            file_grid = Path(__file__).parents[0]/ 'data/latlng_to_geohash.csv'	
+            grid_data = pd.read_csv(file_grid)
             grid_data.rename(columns = {"latitude_3":"lat", "longitude_3":"lon"},inplace = True)
             grid_data.drop(columns = ["hashtags"],inplace =True)
             
