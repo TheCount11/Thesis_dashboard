@@ -4,7 +4,7 @@ Created on Wed Jun 30 14:50:35 2021
 
 @author: pool234
 """
-
+from pathlib import Path
 import numpy as np
 import pandas as pd
 import pydeck as pdk
@@ -215,8 +215,8 @@ with st.beta_expander("Topical"):
                              Here the subset is time (Years). And the measured attribute is hashtags.""")
             st.write ("""Positive typicality indicates that the hashtag was popular during the year displayed on the x axis.
                       Negative typicality indicates the opposite""")         
-                    
-            typ_df = pd.read_csv("https://github.com/TheCount11/Thesis_dashboard_1/blob/master/data/typicality-30.csv", sep ='delimiter')
+            file = Path(__file__).parents[0]/ 'data/typicality-30.csv'        
+            typ_df = pd.read_csv(file, sep ='delimiter')
             st.write(typ_df)
             #typ_df.drop(columns = ["Unnamed: 0"], inplace = True)
             columns = st.multiselect('Select Hashtags (You can select more than one)', list(typ_df.columns)[:-1])
