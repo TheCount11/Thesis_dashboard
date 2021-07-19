@@ -4,7 +4,7 @@ Created on Wed Jun 30 14:50:35 2021
 
 @author: pool234
 """
-from pathlib import Path
+
 import numpy as np
 import pandas as pd
 import pydeck as pdk
@@ -12,22 +12,22 @@ import altair as alt
 from PIL import Image
 import seaborn as sns
 import streamlit as st
+from pathlib import Path
 from collections import Counter
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud, STOPWORDS
 
-'''
-df = pd.read_csv("https://github.com/TheCount11/Thesis_dashboard_1/blob/master/data/german2.csv", sep ='delimiter')
+file_main = Path(__file__).parents[0]/ 'data/german2.csv'
+df = pd.read_csv(file_main)
 
-OUTPUT = "https://github.com/TheCount11/Thesis_dashboard_1/tree/master/data/"
+OUTPUT = Path(__file__).parents[0]/ 'data/'
 
 def clean_emoji(x):
     if x == '{}':
        return ''
     else: 
         return x[1:-1]
-'''
-    
+
 def generate_wordcloud(time,m,userdf):
     
     newlist =userdf['hashtags'].loc[time]
@@ -63,8 +63,8 @@ def typicality(tag, results_subset):
     return typ 
 
 
-'''    
-df.drop(columns = ["Unnamed: 0"], inplace = True)
+
+
 df['hashtags'] = df['hashtags'].apply(lambda x: x[1:-1])
 df['emoji'] = df['emoji'].str.lower().apply(lambda x : clean_emoji(x))
 
@@ -74,7 +74,7 @@ st.set_page_config(
      layout="wide",
      initial_sidebar_state="expanded",
 )
-'''
+
 
 st.title("Visualising twitter data of EU Migration Crisis")
 st.sidebar.markdown("# **Quick Reads**")
@@ -109,7 +109,7 @@ with st.beta_expander('About'):
     st.write("")
     st.write("""170,000 geotagged tweets filtered with relevant hashtags in six languages. Various types visualisations 
              were used to get a sneak peek into what the data is telling us.""")
-'''    
+   
 with st.beta_expander('Spatial'): 
         
        
@@ -207,7 +207,7 @@ with st.beta_expander('Temporal'):
                 ax1.patch.set_facecolor('gray')
                 st.pyplot(fig1)
     
- '''   
+  
 with st.beta_expander("Topical"):
  
       
@@ -217,11 +217,11 @@ with st.beta_expander("Topical"):
                       Negative typicality indicates the opposite""")         
             file_typ = Path(__file__).parents[0]/ 'data/typicality-30.csv'        
             typ_df = pd.read_csv(file_typ)
-            st.write(typ_df.columns)
+           
             
             columns = st.multiselect('Select Hashtags (You can select more than one)', list(typ_df.columns)[:-1])
             columns.append("Years")
-            st.write(columns)
+            
             plot = typ_df[columns]
             plot.set_index("Years", inplace = True)
             p = plot.melt(ignore_index = False).reset_index()
@@ -262,7 +262,7 @@ with st.beta_expander("Social : HLL"):
             st.pydeck_chart(r, use_container_width=True)            
             
 
-'''            
+            
 with st.beta_expander('Spatial, Temporal, Topical'):
     
     with st.beta_container(): 
@@ -343,7 +343,7 @@ with st.beta_expander('Spatial, Temporal, Topical'):
         
         dashboard(lang_choice[lan],peak)                
 
-'''
+
 
 
 
