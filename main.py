@@ -217,10 +217,11 @@ with st.beta_expander("Topical"):
                       Negative typicality indicates the opposite""")         
             file = Path(__file__).parents[0]/ 'data/typicality-30.csv'        
             typ_df = pd.read_csv(file, sep ='delimiter')
-            st.write(typ_df.columns)
+            st.write(typ_df['Years'])
             
             columns = st.multiselect('Select Hashtags (You can select more than one)', list(typ_df.columns)[:-1])
             columns.append("Years")
+            st.write(columns)
             plot = typ_df[[columns]]
             plot.set_index("Years", inplace = True)
             p = plot.melt(ignore_index = False).reset_index()
