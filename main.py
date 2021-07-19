@@ -64,7 +64,7 @@ def typicality(tag, results_subset):
 
 
     
-df.drop(columns = ["Unnamed: 0"], inplace = True)
+#df.drop(columns = ["Unnamed: 0"], inplace = True)
 df['hashtags'] = df['hashtags'].apply(lambda x: x[1:-1])
 df['emoji'] = df['emoji'].str.lower().apply(lambda x : clean_emoji(x))
 
