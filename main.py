@@ -17,7 +17,7 @@ import matplotlib.pyplot as plt
 from wordcloud import WordCloud, STOPWORDS
 
 
-df = pd.read_csv("/home/sagnik/Desktop/Streamlit dashboard/german2.csv")
+df = pd.read_csv("/home/sagnik/Desktop/data/Streamlit dashboard/german2.csv")
 OUTPUT = "/home/sagnik/Desktop/Streamlit dashboard/data/" 
 
 def clean_emoji(x):
