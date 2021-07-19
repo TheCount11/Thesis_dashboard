@@ -217,6 +217,7 @@ with st.beta_expander("Topical"):
                       Negative typicality indicates the opposite""")         
                     
             typ_df = pd.read_csv("https://github.com/TheCount11/Thesis_dashboard_1/blob/master/data/typicality-30.csv", sep ='delimiter')
+            st.write(typ_df)
             #typ_df.drop(columns = ["Unnamed: 0"], inplace = True)
             columns = st.multiselect('Select Hashtags (You can select more than one)', list(typ_df.columns)[:-1])
             columns.append("Years")
