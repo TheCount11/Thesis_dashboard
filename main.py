@@ -16,8 +16,8 @@ from collections import Counter
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud, STOPWORDS
 
-os.chdir("/home/sagnik/Desktop/Streamlit dashboard/data/")
-df = pd.read_csv("german2.csv")
+#os.chdir("/home/sagnik/Desktop/Streamlit dashboard/data/")
+df = pd.read_csv("https://github.com/TheCount11/Thesis_dashboard_1/blob/master/data/german2.csv")
 
 
 def clean_emoji(x):
