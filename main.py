@@ -216,7 +216,7 @@ with st.beta_expander("Topical"):
             st.write ("""Positive typicality indicates that the hashtag was popular during the year displayed on the x axis.
                       Negative typicality indicates the opposite""")         
             file = Path(__file__).parents[0]/ 'data/typicality-30.csv'        
-            typ_df = pd.read_csv(file, sep ='delimiter'usecols =[1:])
+            typ_df = pd.read_csv(file, sep ='delimiter',usecols =[1:])
             st.write(typ_df.columns)
             #typ_df.drop(labels =0, inplace = True)
             columns = st.multiselect('Select Hashtags (You can select more than one)', list(typ_df.columns)[:-1])
