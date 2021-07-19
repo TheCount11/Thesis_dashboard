@@ -16,7 +16,7 @@ from collections import Counter
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud, STOPWORDS
 
-
+'''
 df = pd.read_csv("https://github.com/TheCount11/Thesis_dashboard_1/blob/master/data/german2.csv", sep ='delimiter')
 
 OUTPUT = "https://github.com/TheCount11/Thesis_dashboard_1/tree/master/data/"
@@ -26,7 +26,7 @@ def clean_emoji(x):
        return ''
     else: 
         return x[1:-1]
-    
+'''
     
 def generate_wordcloud(time,m,userdf):
     
@@ -63,11 +63,11 @@ def typicality(tag, results_subset):
     return typ 
 
 
-    
-#df.drop(columns = ["Unnamed: 0"], inplace = True)
+'''    
+df.drop(columns = ["Unnamed: 0"], inplace = True)
 df['hashtags'] = df['hashtags'].apply(lambda x: x[1:-1])
 df['emoji'] = df['emoji'].str.lower().apply(lambda x : clean_emoji(x))
-
+'''
 
 st.set_page_config(
      
@@ -109,7 +109,7 @@ with st.beta_expander('About'):
     st.write("")
     st.write("""170,000 geotagged tweets filtered with relevant hashtags in six languages. Various types visualisations 
              were used to get a sneak peek into what the data is telling us.""")
-    
+'''    
 with st.beta_expander('Spatial'): 
         
        
@@ -207,7 +207,7 @@ with st.beta_expander('Temporal'):
                 ax1.patch.set_facecolor('gray')
                 st.pyplot(fig1)
     
-    
+ '''   
 with st.beta_expander("Topical"):
  
       
@@ -259,7 +259,7 @@ with st.beta_expander("Social : HLL"):
             st.pydeck_chart(r, use_container_width=True)            
             
 
-            
+'''            
 with st.beta_expander('Spatial, Temporal, Topical'):
     
     with st.beta_container(): 
@@ -340,7 +340,7 @@ with st.beta_expander('Spatial, Temporal, Topical'):
         
         dashboard(lang_choice[lan],peak)                
 
-
+'''
 
 
 
