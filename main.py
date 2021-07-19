@@ -67,14 +67,14 @@ def typicality(tag, results_subset):
 df.drop(columns = ["Unnamed: 0"], inplace = True)
 df['hashtags'] = df['hashtags'].apply(lambda x: x[1:-1])
 df['emoji'] = df['emoji'].str.lower().apply(lambda x : clean_emoji(x))
-'''
+
 
 st.set_page_config(
      
      layout="wide",
      initial_sidebar_state="expanded",
 )
-
+'''
 
 st.title("Visualising twitter data of EU Migration Crisis")
 st.sidebar.markdown("# **Quick Reads**")
