@@ -4,7 +4,7 @@ Created on Wed Jun 30 14:50:35 2021
 
 @author: pool234
 """
-
+import os
 import numpy as np
 import pandas as pd
 import pydeck as pdk
@@ -16,9 +16,9 @@ from collections import Counter
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud, STOPWORDS
 
+os.chdir("/home/sagnik/Desktop/Streamlit dashboard/data/")
+df = pd.read_csv("german2.csv")
 
-df = pd.read_csv("/home/sagnik/Desktop/Streamlit dashboard/data/german2.csv")
-OUTPUT = "/home/sagnik/Desktop/Streamlit dashboard/data/" 
 
 def clean_emoji(x):
     if x == '{}':
@@ -215,7 +215,7 @@ with st.beta_expander("Topical"):
             st.write ("""Positive typicality indicates that the hashtag was popular during the year displayed on the x axis.
                       Negative typicality indicates the opposite""")         
                     
-            typ_df = pd.read_csv("/home/sagnik/Desktop/Streamlit dashboard/data/typicality-30.csv")
+            typ_df = pd.read_csv("typicality-30.csv")
             typ_df.drop(columns = ["Unnamed: 0"], inplace = True)
             columns = st.multiselect('Select Hashtags (You can select more than one)', list(typ_df.columns)[:-1])
             columns.append("Years")
@@ -235,7 +235,7 @@ with st.beta_expander("Topical"):
 with st.beta_expander("Social : HLL"):   
         st.write("Visualising number of posts vs users all over Europe")
         with st.beta_container():
-            grid_data = pd.read_csv("/home/sagnik/Desktop/Streamlit Dashboard/data/latlng_to_geohash.csv")
+            grid_data = pd.read_csv("latlng_to_geohash.csv")
             grid_data.rename(columns = {"latitude_3":"lat", "longitude_3":"lon"},inplace = True)
             grid_data.drop(columns = ["hashtags"],inplace =True)
             
