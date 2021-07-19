@@ -218,7 +218,7 @@ with st.beta_expander("Topical"):
             file = Path(__file__).parents[0]/ 'data/typicality-30.csv'        
             typ_df = pd.read_csv(file, sep ='delimiter')
             st.write(typ_df.columns)
-            typ_df.drop(typ_df.columns[0], inplace = True)
+            #typ_df.drop(typ_df.columns[0], inplace = True)
             columns = st.multiselect('Select Hashtags (You can select more than one)', list(typ_df.columns)[:-1])
             columns.append("Years")
             plot = typ_df[columns]
