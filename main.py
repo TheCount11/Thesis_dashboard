@@ -105,7 +105,7 @@ with st.sidebar.beta_expander('Learn More'):
     st.write("[Privacy Overview](https://lbsn.vgiscience.org/privacy/overview/)")       
     
 
-st.markdown('#### **About the Migration Crisis**'):
+st.markdown('#### **About the Migration Crisis**')
 st.write("")
 st.write("""170,000 geotagged tweets filtered with relevant hashtags in six languages. Various types visualisations 
              were used to get a sneak peek into what the data is telling us.""")
