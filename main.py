@@ -87,11 +87,11 @@ with st.sidebar.beta_expander('Spatial'):
 with st.sidebar.beta_expander('Temporal'):
     st.write("The Temporal facet deals with the timestamp the tweets.")
     
-with st.sidebar.beta_expander('Temporal'):
-    st.write("The Temporal facet deals with the content of the tweets.")
+with st.sidebar.beta_expander('Topical'):
+    st.write("The Topical facet deals with the content of the tweets.")
 
 with st.sidebar.beta_expander('Social'):
-    st.write("The Social facet deals with the user of the tweets.")
+    st.write("The Social facet deals with the user who tweets.")
 with st.sidebar.beta_expander("Learn more"):
     st.write("[Facets - LBSN Structure](https://lbsn.vgiscience.org/structure/facets/)")    
     
@@ -105,10 +105,39 @@ with st.sidebar.beta_expander('Learn More'):
     st.write("[Privacy Overview](https://lbsn.vgiscience.org/privacy/overview/)")       
     
 
-with st.beta_expander('About'):
-    st.write("")
-    st.write("""170,000 geotagged tweets filtered with relevant hashtags in six languages. Various types visualisations 
+st.markdown('#### **About the Migration Crisis**'):
+st.write("")
+st.write("""170,000 geotagged tweets filtered with relevant hashtags in six languages. Various types visualisations 
              were used to get a sneak peek into what the data is telling us.""")
+             
+st.subheader('Take a look at the location of all the tweets collected')
+        
+st.pydeck_chart(pdk.Deck(
+                         
+                         width = "100%",
+                         initial_view_state=pdk.ViewState(
+                             latitude=49.5200,
+                             longitude=15.4050,
+                             zoom=3,
+                             pitch=50,
+                             ),
+                         layers=[
+                             pdk.Layer(
+                             "HexagonLayer",
+                              df,
+                              get_position=["lon", "lat"],
+                              auto_highlight=True,
+                              elevation_scale=50,
+                              pickable=False,
+                              elevation_range=[0, 3000],
+                              extruded=True,
+                              coverage=1,
+                         ),
+                            
+                     ],
+                    
+                     
+                 ))                             
    
 with st.beta_expander('Spatial'): 
         
@@ -148,35 +177,7 @@ with st.beta_expander('Spatial'):
             
       
                      
-        with col2:
-                st.subheader('all languages combined')
-        
-                st.pydeck_chart(pdk.Deck(
-                         
-                         width = "100%",
-                         initial_view_state=pdk.ViewState(
-                             latitude=49.5200,
-                             longitude=15.4050,
-                             zoom=3,
-                             pitch=50,
-                             ),
-                         layers=[
-                             pdk.Layer(
-                             "HexagonLayer",
-                              df,
-                              get_position=["lon", "lat"],
-                              auto_highlight=True,
-                              elevation_scale=50,
-                              pickable=False,
-                              elevation_range=[0, 3000],
-                              extruded=True,
-                              coverage=1,
-                         ),
-                            
-                     ],
-                    
-                     
-                 ))
+                       
         
 with st.beta_expander('Temporal'):
   with st.beta_container():    
