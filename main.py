@@ -231,7 +231,7 @@ with st.beta_expander("Topical"):
                       
                         x= alt.X('Years:O', axis=alt.Axis(labelAngle =0)), 
                         y=alt.Y('value:Q'), 
-                        color=alt.Color('variable:N'), 
+                        color=alt.Color('Years:N'), 
                         column = 'variable :N',
                         tooltip=['variable', 'value', 'Years'])
                     
