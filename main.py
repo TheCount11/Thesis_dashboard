@@ -213,32 +213,7 @@ with st.beta_expander("Topical"):
                     
             st.altair_chart(c, use_container_width=True)
             
-with st.beta_expander("Social : HLL"):   
-        st.write("Visualising number of posts vs users all over Europe")
-        with st.beta_container():
-            file_grid = Path(__file__).parents[0]/ 'data/latlng_to_geohash.csv'	
-            grid_data = pd.read_csv(file_grid)
-            grid_data.rename(columns = {"latitude_3":"lat", "longitude_3":"lon"},inplace = True)
-            grid_data.drop(columns = ["hashtags"],inplace =True)
-            
-            choice = {'Number of posts' : "postcount",
-                      'Number of users' : "usercount"}
-            c = st.selectbox('select a metric', list(choice.keys()), key = "c") 
-            
-            layer = pdk.Layer(
-                                "GridLayer",
-                                grid_data,
-                                pickable=True,
-                                extruded=True,
-                                cell_size=2000,
-                                elevation_scale=150,
-                                get_position="[lon,lat]",
-                                get_color_weight=choice[c],
-                            )
-            view_state = pdk.ViewState(latitude=52.5200, longitude=13.4050, zoom=5, bearing=0, pitch=50)
-            r = pdk.Deck(layers=[layer], initial_view_state=view_state)
-            st.pydeck_chart(r, use_container_width=True)            
-            
+          
 
             
 with st.beta_expander('Spatial, Temporal, Topical'):
@@ -255,8 +230,8 @@ with st.beta_expander('Spatial, Temporal, Topical'):
         lan = st.selectbox('select a language', list(lang_choice.keys()), key = "lan")
         peak = st.selectbox('select a peak number between 1 and 6', [1,2,3,4,5,6], key = "peak")
         
-        col5, col6, col7, col8 = st.beta_columns(4) 
-        
+        col5, col6,col7 = st.beta_columns(3) 
+        col8 = st.beta_columns(1) 
         def dashboard(lan,peak):  
             
          df["year-month"] = pd.to_datetime(df["year-month"]).dt.to_period('M')   
