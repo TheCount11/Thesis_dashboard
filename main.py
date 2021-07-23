@@ -317,8 +317,8 @@ with st.beta_expander('Spatial, Temporal, Topical'):
             
          with col8:
          
-         	st.subheader('Take a look at the location of all the tweets collected') 
-         	layer = pdk.Layer(
+               st.subheader('Take a look at the location of all the tweets collected') 
+               layer = pdk.Layer(
                                 "HexagonLayer",
                                 subset_df,
                                 pickable=False,
@@ -327,8 +327,11 @@ with st.beta_expander('Spatial, Temporal, Topical'):
                                 elevation_scale=150,
                                 get_position="[lon,lat]",
                                 coverage = 1,
-                            ) 
-               view_state = pdk.ViewState(latitude=52.5200, longitude=13.4050, zoom=5, bearing=0, pitch=50)
+               	             ) 
+               view_state = pdk.ViewState(latitude=52.5200, longitude=13.4050, 
+               			   zoom=5,
+               			   bearing=0, 
+               			   pitch=50)
                r = pdk.Deck(layers=[layer], initial_view_state=view_state)
                st.pydeck_chart(r, use_container_width=True)            
                                   
