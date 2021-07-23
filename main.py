@@ -109,34 +109,7 @@ st.write("")
 st.write("""170,000 geotagged tweets filtered with relevant hashtags in six languages. Various types visualisations 
              were used to get a sneak peek into what the data is telling us.""")
              
-st.subheader('Take a look at the location of all the tweets collected')
-        
-st.pydeck_chart(pdk.Deck(
-                         
-                         width = "100%",
-                         initial_view_state=pdk.ViewState(
-                             latitude=49.5200,
-                             longitude=15.4050,
-                             zoom=3,
-                             pitch=50,
-                             ),
-                         layers=[
-                             pdk.Layer(
-                             "HexagonLayer",
-                              df,
-                              get_position=["lon", "lat"],
-                              auto_highlight=True,
-                              elevation_scale=50,
-                              pickable=False,
-                              elevation_range=[0, 3000],
-                              extruded=True,
-                              coverage=1,
-                         ),
-                            
-                     ],
-                    
-                     
-                 ))                             
+      
 with st.beta_expander('Note'):
 	st.write("The spatial facet does not allow for selection by location, but uses language for the following image")
 	file_path = Path(__file__).parents[0]/ 'data' / 'lang-loc-uk.jpeg'
@@ -344,7 +317,36 @@ with st.beta_expander('Spatial, Temporal, Topical'):
             
          with col8:
          
-         	st.write(subset_df.columns)
+         	st.subheader('Take a look at the location of all the tweets collected')
+        
+		st.pydeck_chart(pdk.Deck(
+				         
+				         width = "100%",
+				         initial_view_state=pdk.ViewState(
+				             latitude=49.5200,
+				             longitude=15.4050,
+				             zoom=3,
+				             pitch=50,
+				             ),
+				         layers=[
+				             pdk.Layer(
+				             "HexagonLayer",
+				              subset_df,
+				              get_position=["lon", "lat"],
+				              auto_highlight=True,
+				              elevation_scale=50,
+				              pickable=False,
+				              elevation_range=[0, 3000],
+				              extruded=True,
+				              coverage=1,
+				         ),
+				            
+				     ],
+				    
+				     
+				 ))                       
+            
+            
         dashboard(lang_choice[lan],peak)                
 
 
