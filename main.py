@@ -346,7 +346,7 @@ with st.beta_expander('P.S.'):
 	file_path = Path(__file__).parents[0]/ 'data' / 'lang-loc-uk.jpeg'
 	#img = Image.open(file_path) 
 	st.write(file_path)
-	st.image(file_path)
+	st.image(str(file_path))
 
 
 
