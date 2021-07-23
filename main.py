@@ -305,7 +305,7 @@ with st.beta_expander('Spatial, Temporal, Topical'):
                                 coverage = 1,
                	             ) 
                view_state = pdk.ViewState(latitude=52.5200, longitude=13.4050, 
-               			   zoom=5,
+               			   zoom=4,
                			   bearing=0, 
                			   pitch=50)
                r = pdk.Deck(layers=[layer], initial_view_state=view_state)
