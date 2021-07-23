@@ -137,7 +137,12 @@ st.pydeck_chart(pdk.Deck(
                     
                      
                  ))                             
-   
+with st.beta_expander('Note'):
+	st.write("The spatial facet does not allow for selection by location, but uses language for the following image")
+	file_path = Path(__file__).parents[0]/ 'data' / 'lang-loc-uk.jpeg'
+	st.image(str(file_path))   
+	
+	
 with st.beta_expander('Spatial'): 
         
        
@@ -277,7 +282,7 @@ with st.beta_expander('Spatial, Temporal, Topical'):
         lan = st.selectbox('select a language', list(lang_choice.keys()), key = "lan")
         peak = st.selectbox('select a peak number between 1 and 6', [1,2,3,4,5,6], key = "peak")
         
-        col5, col6, col7 = st.beta_columns(3) 
+        col5, col6, col7, col8 = st.beta_columns(4) 
         
         def dashboard(lan,peak):  
             
@@ -336,17 +341,15 @@ with st.beta_expander('Spatial, Temporal, Topical'):
             ax4.patch.set_facecolor('gray')
             ax4.set_xticklabels(list(plot['hashtag'])) 
             st.pyplot(fig4, use_container_width = True)
-        
+            
+         with col8:
+         
+         	st.write(subset_df)
         dashboard(lang_choice[lan],peak)                
 
 
 
-with st.beta_expander('P.S.'):
-	st.write("The spatial facet does not allow for selection by location, but uses language for the following image")
-	file_path = Path(__file__).parents[0]/ 'data' / 'lang-loc-uk.jpeg'
-	#img = Image.open(file_path) 
-	st.write(file_path)
-	st.image(str(file_path))
+
 
 
 
