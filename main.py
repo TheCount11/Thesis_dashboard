@@ -344,8 +344,9 @@ with st.beta_expander('Spatial, Temporal, Topical'):
 with st.beta_expander('P.S.'):
 	st.write("The spatial facet does not allow for selection by location, but uses language for the following image")
 	file_path = Path(__file__).parents[0]/ 'data' / 'lang-loc-uk.jpeg'
-	img = Image.open(file_path) 
-	st.image(img)
+	#img = Image.open(file_path) 
+	st.write(file_path)
+	st.image(file_path)
 
 
 
