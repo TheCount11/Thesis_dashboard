@@ -317,33 +317,22 @@ with st.beta_expander('Spatial, Temporal, Topical'):
             
          with col8:
          
-         	st.subheader('Take a look at the location of all the tweets collected')        
-		st.pydeck_chart(pdk.Deck(		         
-				         width = "100%",
-				         initial_view_state=pdk.ViewState(
-				             latitude=49.5200,
-				             longitude=15.4050,
-				             zoom=3,
-				             pitch=50,
-				             ),
-				         layers=[
-				             pdk.Layer(
-				             "HexagonLayer",
-				              subset_df,
-				              get_position=["lon", "lat"],
-				              auto_highlight=True,
-				              elevation_scale=50,
-				              pickable=False,
-				              elevation_range=[0, 3000],
-				              extruded=True,
-				              coverage=1,
-				         		),
-				            
-				     		],
-				    
-				     
-				 ))                       
-            
+         	st.subheader('Take a look at the location of all the tweets collected') 
+         	layer = pdk.Layer(
+                                "HexagonLayer",
+                                subset_df,
+                                pickable=False,
+                                extruded=True,
+                                elevation_range = [0,3000],
+                                elevation_scale=150,
+                                get_position="[lon,lat]",
+                                coverage = 1,
+                            ) 
+               view_state = pdk.ViewState(latitude=52.5200, longitude=13.4050, zoom=5, bearing=0, pitch=50)
+               r = pdk.Deck(layers=[layer], initial_view_state=view_state)
+               st.pydeck_chart(r, use_container_width=True)            
+                                  
+		
             
         dashboard(lang_choice[lan],peak)                
 
