@@ -20,7 +20,7 @@ from wordcloud import WordCloud, STOPWORDS
 file_main = Path(__file__).parents[0]/ 'data/german2.csv'
 df = pd.read_csv(file_main)
 
-OUTPUT = Path(__file__).parents[0]/ 'data/Mask for Wclouds'
+
 
 def clean_emoji(x):
     if x == '{}':
@@ -28,7 +28,7 @@ def clean_emoji(x):
     else: 
         return x[1:-1]
 
-def generate_wordcloud(time,m,userdf):
+def generate_wordcloud(time,userdf):
     
     newlist =userdf['hashtags'].loc[time]
     foo = []
@@ -44,7 +44,6 @@ def generate_wordcloud(time,m,userdf):
                background_color="gray", 
                width=1600, 
                height=800,
-               mask= m,
                contour_width=1,
                contour_color='black',
                collocations = False).generate(text)
@@ -284,8 +283,6 @@ with st.beta_expander('Spatial, Temporal, Topical'):
             
          df["year-month"] = pd.to_datetime(df["year-month"]).dt.to_period('M')   
          df.set_index('year-month',inplace =True)   
-         ext = ".png" 
-         mask = np.array(Image.open(OUTPUT / (lan + ext)))   
          userdf = df[df['post_language']== f'{lan}']
         
         
@@ -294,26 +291,24 @@ with st.beta_expander('Spatial, Temporal, Topical'):
          
          
          with col5:
-                 st.write("Position of the selected peak")
+                 st.write(f'Your choice of peak (yyyy-mm) : {dates.index[peak-1]}')
                  
                  sns.set_theme(style = "whitegrid", font= "serif")
                  fig3, ax3 = plt.subplots()
                  userdf.groupby(userdf.index)['hashtags'].agg('count').plot(ax =ax3, color = 'yellow')
-                 ax3.plot(dates.index[peak-1],dates[peak-1],'r.',ms =15)   
-                 plt.title(f'Your choice of peak (yyyy-mm) : {dates.index[peak-1]}', size = 10)
+                 ax3.plot(dates.index[peak-1],dates[peak-1],'r.',ms =25)   
                  ax3.set_xlabel("")
                  fig3.patch.set_facecolor('gray')
                  ax3.patch.set_facecolor('gray')
                  st.pyplot(fig3)
                  
                  
-         with col5:
+         with col6:
              
                  st.write("Wordcloud of hashtags used during this time")
                  sns.set_theme(style = "white", font= "serif")
                  fig2, ax2 = plt.subplots()      
-                 wordcloud = generate_wordcloud(dates.index[peak-1],mask,userdf)
-              
+                 wordcloud = generate_wordcloud(dates.index[peak-1],userdf)              
                  ax2.imshow(wordcloud)
                  ax2.axis('off')
                  fig2.patch.set_facecolor('gray')
@@ -323,7 +318,7 @@ with st.beta_expander('Spatial, Temporal, Topical'):
                
          with col7:
             
-            st.write("Typicalities of top 5 hashtags used at this time")
+            st.write("The 5 most typical hashtags of this peak")
           
             subset_df = df.where((df['post_language'] == f'{lan}') & (df.index == dates.index[peak-1] ))
             subset_df.dropna(inplace =True)
@@ -346,7 +341,10 @@ with st.beta_expander('Spatial, Temporal, Topical'):
 
 
 
-
+with st.beta_expander('P.S.'):
+	st.write("The spatial facet does not allow for selection by location, but uses language for the following image")
+	file_image = Path(__file__).parents[0]/ 'data/lang-loc-uk.jpeg'
+	st.image(file_image)
 
 
 
