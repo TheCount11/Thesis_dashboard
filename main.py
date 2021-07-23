@@ -344,7 +344,7 @@ with st.beta_expander('Spatial, Temporal, Topical'):
             
          with col8:
          
-         	st.write(subset_df.reset_index())
+         	st.write(subset_df.columns)
         dashboard(lang_choice[lan],peak)                
 
 
