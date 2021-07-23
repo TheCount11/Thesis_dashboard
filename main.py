@@ -230,8 +230,9 @@ with st.beta_expander('Spatial, Temporal, Topical'):
         lan = st.selectbox('select a language', list(lang_choice.keys()), key = "lan")
         peak = st.selectbox('select a peak number between 1 and 6', [1,2,3,4,5,6], key = "peak")
         
-        col5, col6,col7 = st.beta_columns(3) 
-        col8 = st.beta_columns(1) 
+        col5, col6 = st.beta_columns(2) 
+        col7, col8 = st.beta_columns(2) 
+        
         def dashboard(lan,peak):  
             
          df["year-month"] = pd.to_datetime(df["year-month"]).dt.to_period('M')   
