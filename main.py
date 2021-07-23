@@ -317,10 +317,8 @@ with st.beta_expander('Spatial, Temporal, Topical'):
             
          with col8:
          
-         	st.subheader('Take a look at the location of all the tweets collected')
-        
-		st.pydeck_chart(pdk.Deck(
-				         
+         	st.subheader('Take a look at the location of all the tweets collected')        
+		st.pydeck_chart(pdk.Deck(		         
 				         width = "100%",
 				         initial_view_state=pdk.ViewState(
 				             latitude=49.5200,
@@ -339,9 +337,9 @@ with st.beta_expander('Spatial, Temporal, Topical'):
 				              elevation_range=[0, 3000],
 				              extruded=True,
 				              coverage=1,
-				         ),
+				         		),
 				            
-				     ],
+				     		],
 				    
 				     
 				 ))                       
