@@ -167,7 +167,7 @@ with st.beta_expander('Explore the Data'):
                     ax.xaxis.set_tick_params(rotation=0)
                     fig.patch.set_facecolor('gray')
                     ax.patch.set_facecolor('gray')
-                    st.plot(fig)
+                    st.pyplot(fig)
             with col4:
                     st.markdown("take a look at the years in more detail")
                     sel = st.selectbox("Select the year", sorted(list(df.years.unique())), key='time')
