@@ -117,12 +117,9 @@ with st.beta_expander('Note'):
 
 with st.beta_expander('Explore the Data'):
 
-
-        col1 = st.beta_columns(1)
-
-        with col1:
-            lang = st.selectbox('select a language', df["post_language"].unique(), key = "lang")
-            st.pydeck_chart(pdk.Deck(
+        with st.beta_container(): 
+           lang = st.selectbox('select a language', df["post_language"].unique(), key = "lang")
+           st.pydeck_chart(pdk.Deck(
                          tooltip = {"text": "Hashtags used : {hashtags}\n Year posted : {years}"},
                          width = "100%",
                          initial_view_state=pdk.ViewState(
