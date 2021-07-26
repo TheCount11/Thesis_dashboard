@@ -184,7 +184,8 @@ with st.beta_expander('Explore the Data'):
 
 
             st.subheader("Topical") 
-            st.write("""Typicality indicates how typical the measured atrribute is with respect to a subset.
+            st.write("""Of course it is also of central importance to understand what has been tweeted. Here, hashtags are useful in filtering and separating relevant from non-relevant topics.""")
+            st.write("""Typicality indicates how typical the measured attribute is with respect to a subset derived from the entire dataset.
                                  Here the subset is time (Years). And the measured attribute is hashtags.""")
             st.write ("""Positive typicality indicates that the hashtag was popular during the year displayed on the x axis.
                           Negative typicality indicates the opposite""")
@@ -210,7 +211,9 @@ with st.beta_expander('Explore the Data'):
 
 
             with st.beta_container():
-             st.subheader("Spatial,Temporal,Topical") 
+             st.subheader("Spatial, Temporal and Topical") 
+             st.write("""The facets independently can only give us a part of the full picture. When facets are seen together, by selecting specific timeframes, locations and topics : events are seen. 
+              """)
              lang_choice = {'English' : 'en',
                            'Spanish' : 'es',
                            'Italian' : 'it',
@@ -250,7 +253,7 @@ with st.beta_expander('Explore the Data'):
 
              with col6:
 
-                     st.write("Wordcloud of hashtags used during this time")
+                     st.write("Wordcloud of hashtags used during this time (Topical)")
                      sns.set_theme(style = "white", font= "serif")
                      fig2, ax2 = plt.subplots()
                      wordcloud = generate_wordcloud(dates.index[peak-1],userdf)
@@ -263,7 +266,7 @@ with st.beta_expander('Explore the Data'):
 
              with col7:
 
-                st.write("The 5 most typical hashtags of this peak")
+                st.write("The 5 most typical hashtags of this peak (Topical)")
 
                 subset_df = df.where((df['post_language'] == f'{lan}') & (df.index == dates.index[peak-1] ))
                 subset_df.dropna(inplace =True)
@@ -284,7 +287,7 @@ with st.beta_expander('Explore the Data'):
 
              with col8:
 
-                   st.subheader('Take a look at the location of all the tweets collected')
+                   st.write('These were the places where the tweets were tweeted from (Spatial) ')
                    layer = pdk.Layer(
                                     "HexagonLayer",
                                     subset_df,
@@ -306,12 +309,12 @@ with st.beta_expander('Explore the Data'):
 
             dashboard(lang_choice[lan],peak)
 
-            st.write("##**Some of the significant events captured on Twitter in German**")
+            st.write("## **Some of the significant events captured on Twitter in German**")
 
             event_german_path = Path(__file__).parents[0]/ 'data' / 'german_tweets.jpeg'
             st.image(str(event_german_path))
 
-            st.write("##**Some of the significant events captured on Twitter in English**")
+            st.write("## **Some of the significant events captured on Twitter in English**")
 
             event_english_path = Path(__file__).parents[0]/ 'data' / 'english_tweets.jpeg'
             st.image(str(event_english_path))
