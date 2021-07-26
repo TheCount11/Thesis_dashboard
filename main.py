@@ -118,6 +118,7 @@ with st.beta_expander('Note'):
 with st.beta_expander('Explore the Data'):
 
         with st.beta_container(): 
+           st.subheader("Spatial")	
            lang = st.selectbox('select a language', df["post_language"].unique(), key = "lang")
            st.pydeck_chart(pdk.Deck(
                          tooltip = {"text": "Hashtags used : {hashtags}\n Year posted : {years}"},
@@ -151,6 +152,7 @@ with st.beta_expander('Explore the Data'):
 
 
         with st.beta_container():
+            st.subheader("Temporal")      
 
             col3, col4 = st.beta_columns(2)
             sns.set_theme(style = "darkgrid", font= "serif")
@@ -181,7 +183,7 @@ with st.beta_expander('Explore the Data'):
 
 
 
-
+            st.subheader("Topical") 
             st.write("""Typicality indicates how typical the measured atrribute is with respect to a subset.
                                  Here the subset is time (Years). And the measured attribute is hashtags.""")
             st.write ("""Positive typicality indicates that the hashtag was popular during the year displayed on the x axis.
@@ -208,7 +210,7 @@ with st.beta_expander('Explore the Data'):
 
 
             with st.beta_container():
-
+             st.subheader("Spatial,Temporal,Topical") 
              lang_choice = {'English' : 'en',
                            'Spanish' : 'es',
                            'Italian' : 'it',
@@ -304,12 +306,12 @@ with st.beta_expander('Explore the Data'):
 
             dashboard(lang_choice[lan],peak)
 
-            st.write("##Some of the significant events captured on Twitter in German")
+            st.write("##**Some of the significant events captured on Twitter in German**")
 
             event_german_path = Path(__file__).parents[0]/ 'data' / 'german_tweets.jpeg'
             st.image(str(event_german_path))
 
-            st.write("##Some of the significant events captured on Twitter in English")
+            st.write("##**Some of the significant events captured on Twitter in English**")
 
             event_english_path = Path(__file__).parents[0]/ 'data' / 'english_tweets.jpeg'
             st.image(str(event_english_path))
