@@ -194,7 +194,7 @@ with st.beta_expander('Explore the Data'):
             st.subheader("Topical") 
             st.write("""This facet deals with the content of the tweet. For the purposes of our data, we are going to use hashtags to get a feel of what has been tweeted with respect to time. To do that, we use a recently developed metric : Typiclaity""")
             st.write("""Typicality indicates how typical the measured attribute is with respect to a subset derived from the entire dataset.
-                                 Here the subset is time (Years). And the measured attribute is hashtags.""")
+                                 Here the subset is time (Years). And the measured attribute is hashtag(s).""")
             st.write ("""Positive typicality indicates that the hashtag was popular during the year displayed on the x axis.
                           Negative typicality indicates the opposite""")
             file_typ = Path(__file__).parents[0]/ 'data/typicality-30.csv'
@@ -316,12 +316,12 @@ with st.beta_expander('Explore the Data'):
 
             dashboard(lang_choice[lan],peak)
 
-            st.write("###### **Some of the significant events captured on Twitter in German**")
+            st.write("#### **Some of the significant events captured on Twitter in German**")
 
             event_german_path = Path(__file__).parents[0]/ 'data' / 'german_tweets.jpeg'
             st.image(str(event_german_path))
 
-            st.write("###### **Some of the significant events captured on Twitter in English**")
+            st.write("#### **Some of the significant events captured on Twitter in English**")
 
             event_english_path = Path(__file__).parents[0]/ 'data' / 'english_tweets.jpeg'
             st.image(str(event_english_path))
