@@ -316,13 +316,15 @@ with st.beta_expander('Explore the Data'):
 
             dashboard(lang_choice[lan],peak)
 
-            st.write("#### **Some of the significant events captured on Twitter in German**")
+            st.write("##### **Some of the significant events captured on Twitter in German**")
             st.empty() 
+            st.empty()
             event_german_path = Path(__file__).parents[0]/ 'data' / 'german_tweets.jpeg'
             st.image(str(event_german_path))
 
-            st.write("#### **Some of the significant events captured on Twitter in English**")
+            st.write("##### **Some of the significant events captured on Twitter in English**")
             st.empty() 
+            st.empty()
             event_english_path = Path(__file__).parents[0]/ 'data' / 'english_tweets.jpeg'
             st.image(str(event_english_path))
 
