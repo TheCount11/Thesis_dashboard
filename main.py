@@ -35,7 +35,6 @@ def generate_wordcloud(time,userdf):
         foo.append(item.lower().split(','))
 
     flat_list = [item for sublist in foo for item in sublist]
-    #print(flat_list[:10])
     text = " ".join(word for word in flat_list)
     stopwords = set(STOPWORDS)
 
@@ -118,17 +117,17 @@ with st.beta_expander('Note'):
 with st.beta_expander('Explore the Data'):
 
         with st.beta_container(): 
-           st.write("""Twitter data is incredibly multi-faceted. This means that the raw data comes with many kinds of information and to make sense of them, we have to look at the various facets both singularly and simultaneously.""") 
+           st.write("""Twitter data is incredibly multi-faceted. This means that the raw data comes with many kinds of information and to make sense of them, we have to look at the various facets both singularly and simultaneously. So let's look at some of the facets signularly.""") 
            st.subheader("Spatial")	
            st.write("""The spatial distribution of the tweets can be visualized on a map to see where the tweets come from.""")
         
            options = np.insert(df['post_language'].unique(),0,'None')
-           st.write(options)
            lang = st.selectbox('select a language', options, key = "lang")
            if lang == 'None':
            	data = df
            else:
              data = df[df['post_language'] == lang]	
+           st.write("""The language codes used are the [ISO 639-1 alpha codes] (https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)""")  
            st.pydeck_chart(pdk.Deck(
                          tooltip = {"text": "Hashtags used : {hashtags}\n Year posted : {years}"},
                          width = "100%",
