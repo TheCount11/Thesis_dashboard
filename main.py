@@ -121,8 +121,8 @@ with st.beta_expander('Explore the Data'):
            st.write("""Twitter data is incredibly multi-faceted. This means that the raw data comes with many kinds of information and to make sense of them, we have to look at the various facets both singularly and simultaneously.""") 
            st.subheader("Spatial")	
            st.write("""The spatial distribution of the tweets can be visualized on a map to see where the tweets come from.""")
-           options = df['post_language'].unique()
-           np.insert(options,0,'None')
+        
+           options = np.insert(df['post_language'].unique(),0,'None')
            st.write(options)
            lang = st.selectbox('select a language', options, key = "lang")
            if lang == 'None':
