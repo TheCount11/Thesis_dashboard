@@ -122,7 +122,8 @@ with st.beta_expander('Explore the Data'):
            st.subheader("Spatial")	
            st.write("""The spatial distribution of the tweets can be visualized on a map to see where the tweets come from.""")
            options = df['post_language'].unique()
-           np.insert(options,0, 'None')
+           np.insert(options,0,'None')
+           st.write(options)
            lang = st.selectbox('select a language', options, key = "lang")
            if lang == 'None':
            	data = df
