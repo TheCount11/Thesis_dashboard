@@ -118,7 +118,7 @@ with st.beta_expander('Note'):
 with st.beta_expander('Explore the Data'):
 
         with st.beta_container(): 
-           st.subheader("Spatial")	
+           st.subheader("## **Spatial**")	
            lang = st.selectbox('select a language', df["post_language"].unique(), key = "lang")
            st.pydeck_chart(pdk.Deck(
                          tooltip = {"text": "Hashtags used : {hashtags}\n Year posted : {years}"},
@@ -183,7 +183,7 @@ with st.beta_expander('Explore the Data'):
 
 
 
-            st.subheader("Topical") 
+            st.subheader("## **Topical**") 
             st.write("""Of course it is also of central importance to understand what has been tweeted. Here, hashtags are useful in filtering and separating relevant from non-relevant topics.""")
             st.write("""Typicality indicates how typical the measured attribute is with respect to a subset derived from the entire dataset.
                                  Here the subset is time (Years). And the measured attribute is hashtags.""")
@@ -211,9 +211,8 @@ with st.beta_expander('Explore the Data'):
 
 
             with st.beta_container():
-             st.subheader("Spatial, Temporal and Topical") 
-             st.write("""The facets independently can only give us a part of the full picture. When facets are seen together, by selecting specific timeframes, locations and topics : events are seen. 
-              """)
+             st.subheader("## **Spatial, Temporal and Topical**") 
+             st.write("""The facets independently can only give us a part of the full picture. When facets are seen together, by selecting specific timeframes, locations and topics : events are brought in focus """)
              lang_choice = {'English' : 'en',
                            'Spanish' : 'es',
                            'Italian' : 'it',
@@ -239,7 +238,7 @@ with st.beta_expander('Explore the Data'):
 
 
              with col5:
-                     st.write(f'Your choice of peak (yyyy-mm) : {dates.index[peak-1]}')
+                     st.write(f'Your choice of peak (yyyy-mm) : {dates.index[peak-1]} (Temporal)')
 
                      sns.set_theme(style = "whitegrid", font= "serif")
                      fig3, ax3 = plt.subplots()
@@ -309,12 +308,12 @@ with st.beta_expander('Explore the Data'):
 
             dashboard(lang_choice[lan],peak)
 
-            st.write("## **Some of the significant events captured on Twitter in German**")
+            st.write("###### **Some of the significant events captured on Twitter in German**")
 
             event_german_path = Path(__file__).parents[0]/ 'data' / 'german_tweets.jpeg'
             st.image(str(event_german_path))
 
-            st.write("## **Some of the significant events captured on Twitter in English**")
+            st.write("###### **Some of the significant events captured on Twitter in English**")
 
             event_english_path = Path(__file__).parents[0]/ 'data' / 'english_tweets.jpeg'
             st.image(str(event_english_path))
