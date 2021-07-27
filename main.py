@@ -118,8 +118,15 @@ with st.beta_expander('Note'):
 with st.beta_expander('Explore the Data'):
 
         with st.beta_container(): 
-           st.subheader("## **Spatial**")	
-           lang = st.selectbox('select a language', df["post_language"].unique(), key = "lang")
+           st.write("""Twitter data is incredibly multi-faceted. This means that the raw data comes with many kinds of information and to make sense of them, we have to look at the various facets both singularly and simultaneously.""") 
+           st.subheader("Spatial")	
+           st.write("""The spatial distribution of the tweets can be visualized on a map to see where the tweets come from.""")
+           options = df['post_language'].unique().append('None')
+           lang = st.selectbox('select a language', options, key = "lang")
+           if lang == 'None':
+           	data = df
+           else:
+             data = df[df['post_language'] == lang]	
            st.pydeck_chart(pdk.Deck(
                          tooltip = {"text": "Hashtags used : {hashtags}\n Year posted : {years}"},
                          width = "100%",
@@ -132,7 +139,7 @@ with st.beta_expander('Explore the Data'):
                          layers=[
                              pdk.Layer(
                              'ScatterplotLayer',
-                             data=df[df['post_language'] == lang],
+                             data=data,
                              opacity =0.3,
                              get_position='[lon, lat]',
                              radius_scale=6,
@@ -183,7 +190,7 @@ with st.beta_expander('Explore the Data'):
 
 
 
-            st.subheader("## **Topical**") 
+            st.subheader("Topical") 
             st.write("""Of course it is also of central importance to understand what has been tweeted. Here, hashtags are useful in filtering and separating relevant from non-relevant topics.""")
             st.write("""Typicality indicates how typical the measured attribute is with respect to a subset derived from the entire dataset.
                                  Here the subset is time (Years). And the measured attribute is hashtags.""")
@@ -211,7 +218,7 @@ with st.beta_expander('Explore the Data'):
 
 
             with st.beta_container():
-             st.subheader("## **Spatial, Temporal and Topical**") 
+             st.subheader("Spatial, Temporal and Topical") 
              st.write("""The facets independently can only give us a part of the full picture. When facets are seen together, by selecting specific timeframes, locations and topics : events are brought in focus """)
              lang_choice = {'English' : 'en',
                            'Spanish' : 'es',
