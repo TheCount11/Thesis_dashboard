@@ -108,7 +108,7 @@ st.write("""170,000 geotagged tweets filtered with relevant hashtags in six lang
              were used to get a sneak peek into what the data is telling us.""")
 
 
-with st.beta_expander('**Note**'):
+with st.beta_expander('## Note'):
     st.write("The spatial facet involves using latitude, longitude data to make visualizations. Hence, it might seem strange to users to see the 'select a language' selection within the spatial facet. This has been done because of two reasons. The first reason involves the imgae below")
     file_path = Path(__file__).parents[0]/ 'data' / 'lang-loc-uk.jpeg'
     st.image(str(file_path))
