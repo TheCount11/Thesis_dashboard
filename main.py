@@ -108,7 +108,7 @@ st.write("""170,000 geotagged tweets filtered with relevant hashtags in six lang
              were used to get a sneak peek into what the data is telling us.""")
 
 
-with st.beta_expander('## Note'):
+with st.beta_expander('Note'):
     st.write("The spatial facet involves using latitude, longitude data to make visualizations. Hence, it might seem strange to users to see the 'select a language' selection within the spatial facet. This has been done because of two reasons. The first reason involves the imgae below")
     file_path = Path(__file__).parents[0]/ 'data' / 'lang-loc-uk.jpeg'
     st.image(str(file_path))
@@ -165,16 +165,12 @@ with st.beta_expander('Explore the Data'):
 
         with st.beta_container():
             st.subheader("Temporal")      
-
+            st.write("""As the name suggests, time is of main concern in this facet. Here the distribution of tweets over the years and also the sub-distribution within each year is shown with the bar charts. """)
             col3, col4 = st.beta_columns(2)
             sns.set_theme(style = "darkgrid", font= "serif")
 
             with col3:
-                    st.write("")
-                    st.write("")
-                    st.write("Tweets were collected between 2016 till January 2021")
-                    st.write("")
-                    st.write("")
+                    
                     st.write("Total yearly distribution of tweets")
                     fig, ax = plt.subplots()
                     df.years.value_counts(sort = False).plot(kind = "bar", ax = ax)
@@ -183,7 +179,7 @@ with st.beta_expander('Explore the Data'):
                     ax.patch.set_facecolor('gray')
                     st.pyplot(fig)
             with col4:
-                    st.markdown("take a look at the years in more detail")
+                    st.markdown("Take a look at the tweet distribution of each year in further detail")
                     sel = st.selectbox("Select the year", sorted(list(df.years.unique())), key='time')
                     fig1,ax1 = plt.subplots()
                     df["year-month"][df["years"]==sel].value_counts(sort = False).plot(kind = "bar", ax = ax1)
@@ -196,7 +192,7 @@ with st.beta_expander('Explore the Data'):
 
 
             st.subheader("Topical") 
-            st.write("""Of course it is also of central importance to understand what has been tweeted. Here, hashtags are useful in filtering and separating relevant from non-relevant topics.""")
+            st.write("""This facet deals with the content of the tweet. For the purposes of our data, we are going to use hashtags to get a feel of what has been tweeted with respect to time. To do that, we use a recently developed metric : Typiclaity""")
             st.write("""Typicality indicates how typical the measured attribute is with respect to a subset derived from the entire dataset.
                                  Here the subset is time (Years). And the measured attribute is hashtags.""")
             st.write ("""Positive typicality indicates that the hashtag was popular during the year displayed on the x axis.
