@@ -5,7 +5,7 @@ Created on Wed Jun 30 14:50:35 2021
 @author: pool234
 """
 
-
+import numpy as np
 import pandas as pd
 import pydeck as pdk
 import altair as alt
