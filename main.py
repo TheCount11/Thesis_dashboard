@@ -66,40 +66,9 @@ df['hashtags'] = df['hashtags'].apply(lambda x: x[1:-1])
 df['emoji'] = df['emoji'].str.lower().apply(lambda x : clean_emoji(x))
 
 
-st.set_page_config(
+st.set_page_config(layout="wide") 
 
-     layout="wide",
-     initial_sidebar_state="expanded",
-)
-
-
-st.title("Visualising twitter data of EU Migration Crisis")
-st.sidebar.markdown("# **Quick Reads**")
-st.sidebar.markdown("#### **Facets of LBSN**")
-st.sidebar.write("")
-st.sidebar.write("")
-with st.sidebar.beta_expander('Spatial'):
-    st.write("The Spatial facet deals with the location information of the tweets.")
-
-with st.sidebar.beta_expander('Temporal'):
-    st.write("The Temporal facet deals with the timestamp the tweets.")
-
-with st.sidebar.beta_expander('Topical'):
-    st.write("The Topical facet deals with the content of the tweets.")
-
-with st.sidebar.beta_expander('Social'):
-    st.write("The Social facet deals with the user who tweets.")
-with st.sidebar.beta_expander("Learn more"):
-    st.write("[Facets - LBSN Structure](https://lbsn.vgiscience.org/structure/facets/)")
-
-st.sidebar.markdown("#### **Data Format**")
-st.sidebar.write("")
-with st.sidebar.beta_expander('Raw'):
-    st.write("Data downloaded from twitter where there is no privacy protection.")
-with st.sidebar.beta_expander('HLL'):
-    st.write("Privacy aware data format which is based on HyperLogLog algorithm.")
-with st.sidebar.beta_expander('Learn More'):
-    st.write("[Privacy Overview](https://lbsn.vgiscience.org/privacy/overview/)")
+st.title("The EU Migration Crisis on Twitter")
 
 
 st.markdown('#### **About the Migration Crisis**')
@@ -328,7 +297,9 @@ with st.beta_expander('Explore the Data'):
             event_english_path = Path(__file__).parents[0]/ 'data' / 'english_tweets.jpeg'
             st.image(str(event_english_path))
 
-
+with st.beta_expander("Learn more"):
+    st.write("To get a better idea of the facets presented here and of Location Based Social Networks in general feel free to check this link. ")	
+    st.write("[Facets - LBSN Structure](https://lbsn.vgiscience.org/structure/facets/)")
 
 
 
