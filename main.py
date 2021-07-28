@@ -2,7 +2,7 @@
 """
 Created on Wed Jun 30 14:50:35 2021
 
-@author: pool234
+@author: sagnik_mukherjee
 """
 
 import numpy as np
@@ -78,19 +78,19 @@ st.write("""170,000 geotagged tweets filtered with relevant hashtags in six lang
 
 
 with st.beta_expander('Note'):
-    st.write("The spatial facet involves using latitude, longitude data to make visualizations. Hence, it might seem strange to users to see the 'select a language' selection within the spatial facet. This has been done because of two reasons. The first reason involves the imgae below")
+    st.write("The spatial facet involves using latitude, longitude data to make visualizations. Hence, it might seem strange to users to see the 'select a language' selection within the spatial facet. This has been done because of two reasons. The first reason involves the image below")
     file_path = Path(__file__).parents[0]/ 'data' / 'lang-loc-uk.jpeg'
     st.image(str(file_path))
-    st.write("""The image shows the number of tweets throught the 5 years of the datset when they are filtered based on language (post_language) and country (post_location) for English and the UK. 41% of all tweets is in English. Clearly, there is very little difference between using language or country. In other words, people tweeting in Italian are confined to Italy. 
+    st.write("""The image shows the number of tweets throught the 5 years of the datset when they are filtered based on language (post_language) and country (post_location) for English and the UK. 41% of all tweets is in English. Clearly, there is very little difference between using language or country to filter the data. In other words, people tweeting in Italian are confined (largely) to Italy. 
 
-The second reason for using languages is due to the fact that there would be more tweets in absolute number if the data is filtered with languages instead of countries. This is because of erroneous longitude and latitude coordinates, which does not fall within the border of any country. Hence, to keep the tweets (around 16,000) of them, the Spatial facet uses languages and not countries for filtering and analysing data. 
+The second reason for using languages is due to the fact that there would be more tweets in absolute number if the data is filtered with languages instead of countries. This is because of erroneous longitude and latitude coordinates, which sometimes does not fall within the border of any country but are otherwise fine for the purpose of data analysis. Hence, to keep tweets (around 16,000) of them, the Spatial facet uses languages and not countries for filtering and analysing the data. 
    """)
 
 
 with st.beta_expander('Explore the Data'):
 
         with st.beta_container(): 
-           st.write("""Twitter data is incredibly multi-faceted. This means that the raw data comes with many kinds of information and to make sense of them, we have to look at the various facets both singularly and simultaneously. So let's look at some of the facets signularly.""") 
+           st.write("""Twitter data is incredibly multi-faceted. This means that the raw data comes with many kinds of information and to make sense of them, we have to look at the various facets both singularly and simultaneously. So let's begin by looking at some of the facets signularly.""") 
            st.subheader("Spatial")	
            st.write("""The spatial distribution of the tweets can be visualized on a map to see where the tweets come from.""")
         
@@ -161,7 +161,7 @@ with st.beta_expander('Explore the Data'):
 
 
             st.subheader("Topical") 
-            st.write("""This facet deals with the content of the tweet. For the purposes of our data, we are going to use hashtags to get a feel of what has been tweeted with respect to time. To do that, we use a recently developed metric : Typiclaity""")
+            st.write("""This facet deals with the content of the tweets. For the purposes of our data, we are going to use hashtags to get a feel of what has been tweeted with respect to time. To do that, we use a recently developed metric : Typiclaity""")
             st.write("""Typicality indicates how typical the measured attribute is with respect to a subset derived from the entire dataset.
                                  Here the subset is time (Years). And the measured attribute is hashtag(s).""")
             st.write ("""Positive typicality indicates that the hashtag was popular during the year displayed on the x axis.
