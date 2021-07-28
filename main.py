@@ -19,6 +19,7 @@ from wordcloud import WordCloud, STOPWORDS
 file_main = Path(__file__).parents[0]/ 'data/german2.csv'
 df = pd.read_csv(file_main)
 
+file_ap = Path(__file__).parents[0]/ 'data/54875226_403'
 
 
 def clean_emoji(x):
@@ -73,6 +74,9 @@ st.title("The EU Migration Crisis on Twitter")
 
 st.markdown('#### **About the Migration Crisis**')
 st.write("")
+st.image(str(file_ap))
+st.write("Refugees flee fire at the Moria camp in Lesbos, September 2020")
+st.write ("Credits : Petros Giannakouris for Associated Press Photo")
 st.write("""170,000 geotagged tweets filtered with relevant hashtags in six languages. Various types visualisations
              were used to get a sneak peek into what the data is telling us.""")
 
