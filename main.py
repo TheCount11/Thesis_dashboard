@@ -72,11 +72,12 @@ st.set_page_config(layout="wide")
 st.title("The EU Migration Crisis on Twitter")
 
 
-st.markdown('#### **About the Migration Crisis**')
+
 st.write("")
 st.image(str(file_ap))
-st.write("Refugees flee fire at the Moria camp in Lesbos, September 2020")
-st.write ("Credits : Petros Giannakouris for Associated Press Photo")
+st.write("*Refugees flee fire at the Moria camp in Lesbos, September 2020.Credits : Petros Giannakouris for Associated Press Photo*")
+st.write ("")
+st.markdown('#### **About the Migration Crisis**')
 st.write("""170,000 geotagged tweets filtered with relevant hashtags in six languages. Various types visualisations
              were used to get a sneak peek into what the data is telling us.""")
 
