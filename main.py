@@ -19,7 +19,7 @@ from wordcloud import WordCloud, STOPWORDS
 file_main = Path(__file__).parents[0]/ 'data/german2.csv'
 df = pd.read_csv(file_main)
 
-file_ap = Path(__file__).parents[0]/ 'data/54875226_403.jpg'
+file_ap = Path(__file__).parents[0]/ 'data'/'54875226_403.jpg'
 
 
 def clean_emoji(x):
