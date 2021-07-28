@@ -75,11 +75,15 @@ st.title("The EU Migration Crisis on Twitter")
 
 st.write("")
 st.image(str(file_ap))
-st.write("*Refugees flee fire at the Moria camp in Lesbos, September 2020.Credits : Petros Giannakouris for Associated Press Photo*")
+st.write("*Refugees flee fire at the Moria camp in Lesbos, September 2020. Credits : Petros Giannakouris for Associated Press Photo*")
 st.write ("")
-st.markdown('#### **About the Migration Crisis**')
-st.write("""170,000 geotagged tweets filtered with relevant hashtags in six languages. Various types visualisations
-             were used to get a sneak peek into what the data is telling us.""")
+
+st.write ("")
+st.write("""On 2nd September. 2015, a 3-year-old's body washed up on the Turkish shores drawing international attention to the plight of people fleeing war and coming to Europe. This incident is widely considered to be the beginning of a tumultous period of political and social turmoil, the Migration Crisis. Recently, German Chancellor Angela Merkel described this crisis as one of the greatest challenges of her 16 year term. 
+
+Photos, reports and videos of hundreds of desperate faces risking lives and savings at the hands of illegal smuggler to come to places with a foreign culture was always in the news. Sometimes the refugee found the refuge they need, while sometimes they were scorned. Such treatment from the political establishment towards the refugees were sometimes cheered and sometimes jeered. 
+
+To understand how the mood of the people of Europe was during this time, Twitter data can be used. Twitter is very sensitive to socio-political crises owing to large number of politicians and journalists using the platform. Twitter's history as being instrumental in the Arab Spring, also cemented Twitter's role as the social media of political rights. For these reasons, I chose to study the Migration Crisis on Twitter. """)
 
 
 with st.beta_expander('Note'):
