@@ -80,11 +80,7 @@ st.write("*Refugees flee fire at the Moria camp in Lesbos, September 2020. Credi
 st.write ("")
 
 st.write ("")
-st.write("""On 2nd September. 2015, a 3-year-old's body washed up on the Turkish shores drawing international attention to the plight of people fleeing war and coming to Europe. This incident is widely considered to be the beginning of a tumultous period of political and social turmoil, the Migration Crisis. Recently, German Chancellor Angela Merkel described this crisis as one of the greatest challenges of her 16 year term. 
 
-Photos, reports and videos of hundreds of desperate faces risking lives and savings at the hands of illegal smuggler to come to places with a foreign culture was always in the news. Sometimes the refugee found the refuge they need, while sometimes they were scorned. Such treatment from the political establishment towards the refugees were sometimes cheered and sometimes jeered. 
-
-To understand how the mood of the people of Europe was during this time, Twitter data can be used. Twitter is very sensitive to socio-political crises owing to large number of politicians and journalists using the platform. Twitter's history as being instrumental in the Arab Spring, also cemented Twitter's role as the social media of political rights. For these reasons, I chose to study the Migration Crisis on Twitter. """)
 
 
 
@@ -163,7 +159,7 @@ with st.beta_expander('Explore the Data'):
 
 
             st.subheader("Topical") 
-            st.write("""This facet deals with the content of the tweets. For the purposes of our data, we are going to use hashtags to get a feel of what has been tweeted with respect to time. To do that, we use a recently developed metric : Typiclaity""")
+            
             st.write("""Typicality indicates how typical the measured attribute is with respect to a subset derived from the entire dataset.
                                  Here the subset is time (Years). And the measured attribute is hashtag(s).""")
             st.write ("""Positive typicality indicates that the hashtag was popular during the year displayed on the x axis.
