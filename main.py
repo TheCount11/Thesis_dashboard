@@ -92,7 +92,7 @@ with st.beta_expander('Note'):
 The second reason for using languages is due to the fact that there would be more tweets in absolute number if the data is filtered with languages instead of countries. This is because of erroneous longitude and latitude coordinates, which sometimes does not fall within the border of any country but are otherwise fine for the purpose of data analysis. Hence, to keep tweets (around 16,000) of them, the Spatial facet uses languages and not countries for filtering and analysing the data. 
    """)
 
-with st.beta_expander('Explore the Data'):
+with st.beta_expander('Explore the Facets'):
 
         with st.beta_container(): 
            st.write("""Twitter data is incredibly multi-faceted. This means that the raw data comes with many kinds of information and to make sense of them, we have to look at the various facets both singularly and simultaneously. So let's begin by looking at some of the facets signularly.""") 
@@ -159,7 +159,8 @@ with st.beta_expander('Explore the Data'):
                     st.markdown("Take a look at the tweet distribution of each year in further detail")
                     sel = st.selectbox("Select the year", sorted(list(df.years.unique())), key='time')
                     plot_years2 = df['year-month'][df['years']== sel].value_counts().rename_axis('months').reset_index(name='tweet_count')
-                    plot_years2['months'] = plot_years2['months'].apply(lambda x: pd.to_datetime(x).strftime('%b'))
+                    plot_years['months'] = pd.to_datetime(plot_years['months'], format='%b', errors='coerce').dt.month
+                    
                     c2 = alt.Chart(plot_years2).mark_bar().encode(
                                               x= alt.X('months:N', axis=alt.Axis(labelAngle =0)),
                                               y='tweet_count',
@@ -196,7 +197,7 @@ with st.beta_expander('Explore the Data'):
 
             st.altair_chart(c, use_container_width=True)
 
-with st.beta_expander('Explore Events with the data'):
+with st.beta_expander('Explore Events with the Facets'):
             with st.beta_container():
              st.subheader("Using the facets for event detection") 
              st.write("""The facets independently can only give us a part of the full picture. When facets are seen together, by selecting specific timeframes, locations and topics : events are brought in focus """)
