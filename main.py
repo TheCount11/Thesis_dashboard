@@ -146,21 +146,26 @@ with st.beta_expander('Explore the Data'):
             with col3:
                     
                     st.write("Total yearly distribution of tweets")
-                    fig, ax = plt.subplots()
-                    df.years.value_counts(sort = False).plot(kind = "bar", ax = ax)
-                    ax.xaxis.set_tick_params(rotation=0)
-                    fig.patch.set_facecolor('gray')
-                    ax.patch.set_facecolor('gray')
-                    st.pyplot(fig)
+                    plot_years = df.Years.value_counts().rename_axis('years').reset_index(name='tweet_count')
+                    plot_years['years'] = plot_years.astype({'years': 'str'})
+                    c1 = alt.Chart(plot_years).mark_bar().encode(
+    x= alt.X('years:O', axis=alt.Axis(labelAngle =0)),
+    y='tweet_count',
+    tooltip = ['tweet_count']
+).properties(width =500)
+                    st.altair_chart(c1)
+
             with col4:
                     st.markdown("Take a look at the tweet distribution of each year in further detail")
                     sel = st.selectbox("Select the year", sorted(list(df.years.unique())), key='time')
-                    fig1,ax1 = plt.subplots()
-                    df["year-month"][df["years"]==sel].value_counts(sort = False).plot(kind = "bar", ax = ax1)
-                    ax1.xaxis.set_tick_params(rotation=50)
-                    fig1.patch.set_facecolor('gray')
-                    ax1.patch.set_facecolor('gray')
-                    st.pyplot(fig1)
+                    plot_years2 = df['Month/Year'][df['Years']== sel].value_counts().rename_axis('months').reset_index(name='tweet_count')
+    plot_years2['months'] = plot_years2['months'].apply(lambda x: x.strftime('%b'))
+                    c2 = alt.Chart(plot_years2).mark_bar().encode(
+            x= alt.X('months:N', axis=alt.Axis(labelAngle =0)),
+            y='tweet_count',
+            tooltip = ['tweet_count']
+            ).properties(width =500)
+                    st.altair_chart(c2)
 
 
 
@@ -191,9 +196,9 @@ with st.beta_expander('Explore the Data'):
 
             st.altair_chart(c, use_container_width=True)
 
-with st.beta_expander('Explore Events from the data'):
+with st.beta_expander('Explore Events with the data'):
             with st.beta_container():
-             st.subheader("Spatial, Temporal and Topical") 
+             st.subheader("Using the facets for event detection") 
              st.write("""The facets independently can only give us a part of the full picture. When facets are seen together, by selecting specific timeframes, locations and topics : events are brought in focus """)
              lang_choice = {'English' : 'en',
                            'Spanish' : 'es',
