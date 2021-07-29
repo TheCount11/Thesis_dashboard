@@ -164,7 +164,7 @@ with st.beta_expander('Explore the Facets'):
                     plot_years2.sort_values(by=['months'],inplace =True)
                     plot_years2['months'] = plot_years2['months'].apply(lambda x: x.strftime('%b'))
                     c2 = alt.Chart(plot_years2).mark_bar().encode(
-                                              x= alt.X('months:N', axis=alt.Axis(labelAngle =0)),
+                                              x= alt.X('months', axis=alt.Axis(labelAngle =0)),
                                               y='tweet_count',
                                               tooltip = ['tweet_count']
                                               ).properties(width =500)
