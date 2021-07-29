@@ -149,22 +149,22 @@ with st.beta_expander('Explore the Data'):
                     plot_years = df.Years.value_counts().rename_axis('years').reset_index(name='tweet_count')
                     plot_years['years'] = plot_years.astype({'years': 'str'})
                     c1 = alt.Chart(plot_years).mark_bar().encode(
-    x= alt.X('years:O', axis=alt.Axis(labelAngle =0)),
-    y='tweet_count',
-    tooltip = ['tweet_count']
-).properties(width =500)
+                                              x= alt.X('years:O', axis=alt.Axis(labelAngle =0)),
+                                              y='tweet_count',
+                                              tooltip = ['tweet_count']
+                                              ).properties(width =500)
                     st.altair_chart(c1)
 
             with col4:
                     st.markdown("Take a look at the tweet distribution of each year in further detail")
                     sel = st.selectbox("Select the year", sorted(list(df.years.unique())), key='time')
                     plot_years2 = df['Month/Year'][df['Years']== sel].value_counts().rename_axis('months').reset_index(name='tweet_count')
-    plot_years2['months'] = plot_years2['months'].apply(lambda x: x.strftime('%b'))
+                    plot_years2['months'] = plot_years2['months'].apply(lambda x: x.strftime('%b'))
                     c2 = alt.Chart(plot_years2).mark_bar().encode(
-            x= alt.X('months:N', axis=alt.Axis(labelAngle =0)),
-            y='tweet_count',
-            tooltip = ['tweet_count']
-            ).properties(width =500)
+                                              x= alt.X('months:N', axis=alt.Axis(labelAngle =0)),
+                                              y='tweet_count',
+                                              tooltip = ['tweet_count']
+                                              ).properties(width =500)
                     st.altair_chart(c2)
 
 
