@@ -20,7 +20,7 @@ file_main = Path(__file__).parents[0]/ 'data/german2.csv'
 df = pd.read_csv(file_main)
 
 
-file_ap = Path(__file__).parents[0]/ 'data'/'54875226_403.jpg'
+
 
 
 def clean_emoji(x):
@@ -71,17 +71,6 @@ df['emoji'] = df['emoji'].str.lower().apply(lambda x : clean_emoji(x))
 st.set_page_config(layout="wide") 
 
 st.title("The EU Migration Crisis on Twitter")
-
-
-
-st.write("")
-st.image(str(file_ap))
-st.write("*Refugees flee fire at the Moria camp in Lesbos, September 2020. Credits : Petros Giannakouris for Associated Press Photo*")
-st.write ("")
-
-st.write ("")
-
-
 
 with st.beta_expander('Note'):
     st.write("The spatial facet involves using latitude, longitude data to make visualizations. Hence, it might seem strange to users to see the 'select a language' selection within the spatial facet. This has been done because of two reasons. The first reason involves the image below")
@@ -139,7 +128,9 @@ with st.beta_expander('Explore the Facets'):
 
         with st.beta_container():
             st.subheader("Temporal")      
-            st.write("""As the name suggests, time is of main concern in this facet. Here the distribution of tweets over the years and also the sub-distribution within each year is shown with the bar charts. """)
+            st.write("""As the name suggests, time is of main concern in this facet. Here the distribution of tweets over the years and also the sub-distribution within each year is shown with the bar charts. 
+            
+            Hover the mouse pointer over the charts for exact counts""")
             col3, col4 = st.beta_columns(2)
             
 
