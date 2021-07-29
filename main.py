@@ -72,14 +72,7 @@ st.set_page_config(layout="wide")
 
 st.title("The EU Migration Crisis on Twitter")
 
-with st.beta_expander('Note'):
-    st.write("The spatial facet involves using latitude, longitude data to make visualizations. Hence, it might seem strange to users to see the 'select a language' selection within the spatial facet. This has been done because of two reasons. The first reason involves the image below")
-    file_path = Path(__file__).parents[0]/ 'data' / 'lang-loc-uk.jpeg'
-    st.image(str(file_path))
-    st.write("""The image shows the number of tweets throught the 5 years of the datset when they are filtered based on language (post_language) and country (post_location) for English and the UK. 41% of all tweets is in English. Clearly, there is very little difference between using language or country to filter the data. In other words, people tweeting in Italian are confined (largely) to Italy. 
 
-The second reason for using languages is due to the fact that there would be more tweets in absolute number if the data is filtered with languages instead of countries. This is because of erroneous longitude and latitude coordinates, which sometimes does not fall within the border of any country but are otherwise fine for the purpose of data analysis. Hence, to keep tweets (around 16,000) of them, the Spatial facet uses languages and not countries for filtering and analysing the data. 
-   """)
 
 with st.beta_expander('Explore the Facets'):
 
