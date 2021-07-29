@@ -168,12 +168,8 @@ with st.beta_expander('Explore the Facets'):
                                               y='tweet_count',
                                               tooltip = ['tweet_count']
                                               ).properties(width =500)
-                   st.altair_chart(c2)
-                   
-
-
-
-
+                    st.altair_chart(c2)
+                    
             st.subheader("Topical") 
             
             st.write("""Typicality indicates how typical the measured attribute is with respect to a subset derived from the entire dataset.
