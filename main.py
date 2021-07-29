@@ -156,18 +156,20 @@ with st.beta_expander('Explore the Facets'):
                     st.altair_chart(c1)
 
             with col4:
-                    months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun","Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+                    
                     st.markdown("Take a look at the tweet distribution of each year in further detail")
                     sel = st.selectbox("Select the year", sorted(list(df.years.unique())), key='time')
                     plot_years2 = df['year-month'][df['years']== sel].value_counts().rename_axis('months').reset_index(name='tweet_count')
-                    plot_years2['months'] = pd.Categorical(plot_years2['months'], categories=months, ordered=True)
+                    plot_years2['months'] = pd.to_datetime(plot_years2['months']).dt.to_period('M')
                     plot_years2.sort_values(by=['months'],inplace =True)
+                    plot_years2['months'] = plot_years2['months'].apply(lambda x: x.strftime('%b'))
                     c2 = alt.Chart(plot_years2).mark_bar().encode(
                                               x= alt.X('months:N', axis=alt.Axis(labelAngle =0)),
                                               y='tweet_count',
                                               tooltip = ['tweet_count']
                                               ).properties(width =500)
-                    st.altair_chart(c2)
+                    #st.altair_chart(c2)
+                    st.write(plot_years2)
 
 
 
