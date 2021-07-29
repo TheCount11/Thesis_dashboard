@@ -168,8 +168,8 @@ with st.beta_expander('Explore the Facets'):
                                               y='tweet_count',
                                               tooltip = ['tweet_count']
                                               ).properties(width =500)
-                    #st.altair_chart(c2)
-                    st.write(plot_years2)
+                   st.altair_chart(c2)
+                   
 
 
 
