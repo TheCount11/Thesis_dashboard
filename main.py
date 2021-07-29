@@ -122,7 +122,7 @@ with st.beta_expander('Explore the Facets'):
 
         with st.beta_container():
             st.subheader("Temporal")      
-            st.write("""As the name suggests, time is of main concern in this facet. Here the distribution of tweets over the years and also the sub-distribution within each year is shown with the bar charts. 
+            st.write("""As the name suggests, the temporal facet is about using the timestamps associated with tweets and exploring their patterns. Here the distribution of tweets over the years and also the sub-distribution within each year is shown with the bar charts. 
             
 Hover the mouse pointer over the charts for exact counts""")
             col3, col4 = st.beta_columns(2)
@@ -155,6 +155,8 @@ Hover the mouse pointer over the charts for exact counts""")
                     st.altair_chart(c2)
                     
             st.subheader("Topical") 
+            st.write("")
+            st.write("This facet deals with the 'what' of the tweets. For our dataset, the broader topic would be the migration crisis. But even there, one can find distinct topics being raised on Twitter. Hashtags are a great indicator of topics, and here we are using hashtags with a novel metric : typicality.")
             
             st.write("""Typicality indicates how typical the measured attribute is with respect to a subset derived from the entire dataset.
                                  Here the subset is time (Years). And the measured attribute is hashtag(s).""")
@@ -183,7 +185,8 @@ Hover the mouse pointer over the charts for exact counts""")
 with st.beta_expander('Explore Events with the Facets'):
             with st.beta_container():
              st.subheader("Using the facets for event detection") 
-             st.write("""The facets independently can only give us a part of the full picture. When facets are seen together, by selecting specific timeframes, locations and topics : events are brought in focus """)
+             st.write("""Tweets are not made in vacuum. They are quite related to things happening around us. The facets independently can only give us a part of the full picture. When facets are combined, by selecting specific timeframes, locations and topics : events are brought in focus. Events on twitter give us a link and allow us to explore the differences and similarities between society and social media. For example, the default event (the one shown before you choose anything) being shown is the Muslim Ban brought into force by Donald Trump. """)
+             
              lang_choice = {'English' : 'en',
                            'Spanish' : 'es',
                            'Italian' : 'it',
