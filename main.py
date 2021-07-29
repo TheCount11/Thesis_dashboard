@@ -19,10 +19,6 @@ from wordcloud import WordCloud, STOPWORDS
 file_main = Path(__file__).parents[0]/ 'data/german2.csv'
 df = pd.read_csv(file_main)
 
-
-
-
-
 def clean_emoji(x):
     if x == '{}':
        return ''
@@ -71,14 +67,15 @@ df['emoji'] = df['emoji'].str.lower().apply(lambda x : clean_emoji(x))
 st.set_page_config(layout="wide") 
 
 st.title("The EU Migration Crisis on Twitter")
-st.write("")
+
 st.write("")
 file_ap = Path(__file__).parents[0]/ 'data' / '54875226_403.jpg'
 st.image(str(file_ap))
-st.write("*Refugees fleeing Moria due to the fire in September,2020. Credits to Petros GIannakouris/AP Photo*")
+st.write("*Refugees fleeing Moria due to the fire in September,2020. Credits to Petros Giannakouris/AP Photo*")
 st.write("")
 st.write("""On 2nd Septermber,2015 a body of a three-year-old Syrian boy washed up near Bodrum, Turkey. This incident is largely held to be the beginning of the Migration Crisis in EU. Recently, Angela Merkel considered this crisis to be one of the most difficult for her to deal with during her 16 year tenure. 
 
+This crisis has put some of the best and worst attributes of human society at the forefront. Not only, do we see this on newspapers and televisions, but now more so on Twitter. Ever since the Arab Spring movement, Twitter has been the social network for socio-political issues to be expressed. Official announcement from heads of states and CEO's are covered on Twitter. However, also ordinary people increasingly take to Twitter to express their opinions. This is why, tweets have been chosen to get a feel for the public perception during the EU Migration Crisis.  
 """)
 st.write("")
 st.write("")
