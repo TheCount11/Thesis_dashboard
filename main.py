@@ -19,6 +19,7 @@ from wordcloud import WordCloud, STOPWORDS
 file_main = Path(__file__).parents[0]/ 'data/german2.csv'
 df = pd.read_csv(file_main)
 
+
 file_ap = Path(__file__).parents[0]/ 'data'/'54875226_403.jpg'
 
 
@@ -74,7 +75,7 @@ st.title("The EU Migration Crisis on Twitter")
 
 
 st.write("")
-#st.image(str(file_ap))
+st.image(str(file_ap))
 st.write("*Refugees flee fire at the Moria camp in Lesbos, September 2020. Credits : Petros Giannakouris for Associated Press Photo*")
 st.write ("")
 
@@ -85,17 +86,9 @@ Photos, reports and videos of hundreds of desperate faces risking lives and savi
 
 To understand how the mood of the people of Europe was during this time, Twitter data can be used. Twitter is very sensitive to socio-political crises owing to large number of politicians and journalists using the platform. Twitter's history as being instrumental in the Arab Spring, also cemented Twitter's role as the social media of political rights. For these reasons, I chose to study the Migration Crisis on Twitter. """)
 
-"""
-with st.beta_expander('Note'):
-    st.write("The spatial facet involves using latitude, longitude data to make visualizations. Hence, it might seem strange to users to see the 'select a language' selection within the spatial facet. This has been done because of two reasons. The first reason involves the image below")
-    file_path = Path(__file__).parents[0]/ 'data' / 'lang-loc-uk.jpeg'
-    st.image(str(file_path))
-    st.write("""The image shows the number of tweets throught the 5 years of the datset when they are filtered based on language (post_language) and country (post_location) for English and the UK. 41% of all tweets is in English. Clearly, there is very little difference between using language or country to filter the data. In other words, people tweeting in Italian are confined (largely) to Italy. 
 
-The second reason for using languages is due to the fact that there would be more tweets in absolute number if the data is filtered with languages instead of countries. This is because of erroneous longitude and latitude coordinates, which sometimes does not fall within the border of any country but are otherwise fine for the purpose of data analysis. Hence, to keep tweets (around 16,000) of them, the Spatial facet uses languages and not countries for filtering and analysing the data. 
-   """)
 
-"""
+
 with st.beta_expander('Explore the Data'):
 
         with st.beta_container(): 
@@ -195,7 +188,7 @@ with st.beta_expander('Explore the Data'):
 
             st.altair_chart(c, use_container_width=True)
 
-
+with st.beta_expander('Explore Events from the data'):
             with st.beta_container():
              st.subheader("Spatial, Temporal and Topical") 
              st.write("""The facets independently can only give us a part of the full picture. When facets are seen together, by selecting specific timeframes, locations and topics : events are brought in focus """)
