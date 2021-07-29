@@ -71,9 +71,17 @@ df['emoji'] = df['emoji'].str.lower().apply(lambda x : clean_emoji(x))
 st.set_page_config(layout="wide") 
 
 st.title("The EU Migration Crisis on Twitter")
+st.write("")
+st.write("")
+file_ap = Path(__file__).parents[0]/ 'data/54875226_403.jpeg'
+st.image(str(file_ap))
+st.write("*Refugees fleeing Moria due to the fire in September,2020. Credits to Petros GIannakouris/AP Photo*")
+st.write("")
+st.write("""On 2nd Septermber,2015 a body of a three-year-old Syrian boy washed up near Bodrum, Turkey. This incident is largely held to be the beginning of the Migration Crisis in EU. Recently, Angela Merkel considered this crisis to be one of the most difficult for her to deal with during her 16 year tenure. 
 
-
-
+""")
+st.write("")
+st.write("")
 with st.beta_expander('Explore the Facets'):
 
         with st.beta_container(): 
