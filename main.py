@@ -119,7 +119,7 @@ with st.beta_expander('Explore the Facets'):
             st.subheader("Temporal")      
             st.write("""As the name suggests, time is of main concern in this facet. Here the distribution of tweets over the years and also the sub-distribution within each year is shown with the bar charts. 
             
-            Hover the mouse pointer over the charts for exact counts""")
+Hover the mouse pointer over the charts for exact counts""")
             col3, col4 = st.beta_columns(2)
             
 
