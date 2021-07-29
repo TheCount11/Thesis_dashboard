@@ -74,7 +74,7 @@ st.title("The EU Migration Crisis on Twitter")
 
 
 st.write("")
-st.image(str(file_ap))
+#st.image(str(file_ap))
 st.write("*Refugees flee fire at the Moria camp in Lesbos, September 2020. Credits : Petros Giannakouris for Associated Press Photo*")
 st.write ("")
 
