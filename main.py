@@ -73,7 +73,7 @@ st.set_page_config(layout="wide")
 st.title("The EU Migration Crisis on Twitter")
 st.write("")
 st.write("")
-file_ap = Path(__file__).parents[0]/ 'data/54875226_403.jpeg'
+file_ap = Path(__file__).parents[0]/ 'data' / '54875226_403.jpg'
 st.image(str(file_ap))
 st.write("*Refugees fleeing Moria due to the fire in September,2020. Credits to Petros GIannakouris/AP Photo*")
 st.write("")
