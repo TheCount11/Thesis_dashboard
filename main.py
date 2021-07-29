@@ -156,6 +156,7 @@ with st.beta_expander('Explore the Facets'):
                     st.altair_chart(c1)
 
             with col4:
+                    months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun","Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
                     st.markdown("Take a look at the tweet distribution of each year in further detail")
                     sel = st.selectbox("Select the year", sorted(list(df.years.unique())), key='time')
                     plot_years2 = df['year-month'][df['years']== sel].value_counts().rename_axis('months').reset_index(name='tweet_count')
