@@ -68,7 +68,7 @@ df['hashtags'] = df['hashtags'].apply(lambda x: x[1:-1])
 df['emoji'] = df['emoji'].str.lower().apply(lambda x : clean_emoji(x))
 
 
-st.set_page_config(layout="wide") 
+#st.set_page_config(layout="wide") 
 
 st.title("The EU Migration Crisis on Twitter")
 
