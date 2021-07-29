@@ -141,12 +141,12 @@ with st.beta_expander('Explore the Data'):
             st.subheader("Temporal")      
             st.write("""As the name suggests, time is of main concern in this facet. Here the distribution of tweets over the years and also the sub-distribution within each year is shown with the bar charts. """)
             col3, col4 = st.beta_columns(2)
-            sns.set_theme(style = "darkgrid", font= "serif")
+            
 
             with col3:
                     
                     st.write("Total yearly distribution of tweets")
-                    plot_years = df.Years.value_counts().rename_axis('years').reset_index(name='tweet_count')
+                    plot_years = df.years.value_counts().rename_axis('years').reset_index(name='tweet_count')
                     plot_years['years'] = plot_years.astype({'years': 'str'})
                     c1 = alt.Chart(plot_years).mark_bar().encode(
                                               x= alt.X('years:O', axis=alt.Axis(labelAngle =0)),
@@ -158,7 +158,7 @@ with st.beta_expander('Explore the Data'):
             with col4:
                     st.markdown("Take a look at the tweet distribution of each year in further detail")
                     sel = st.selectbox("Select the year", sorted(list(df.years.unique())), key='time')
-                    plot_years2 = df['Month/Year'][df['Years']== sel].value_counts().rename_axis('months').reset_index(name='tweet_count')
+                    plot_years2 = df['year-month'][df['years']== sel].value_counts().rename_axis('months').reset_index(name='tweet_count')
                     plot_years2['months'] = plot_years2['months'].apply(lambda x: x.strftime('%b'))
                     c2 = alt.Chart(plot_years2).mark_bar().encode(
                                               x= alt.X('months:N', axis=alt.Axis(labelAngle =0)),
