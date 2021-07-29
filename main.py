@@ -159,7 +159,7 @@ with st.beta_expander('Explore the Data'):
                     st.markdown("Take a look at the tweet distribution of each year in further detail")
                     sel = st.selectbox("Select the year", sorted(list(df.years.unique())), key='time')
                     plot_years2 = df['year-month'][df['years']== sel].value_counts().rename_axis('months').reset_index(name='tweet_count')
-                    plot_years2['months'] = plot_years2['months'].apply(lambda x: x.strftime('%b'))
+                    plot_years2['months'] = plot_years2['months'].apply(lambda x: pd.to_datetime(x).strftime('%b'))
                     c2 = alt.Chart(plot_years2).mark_bar().encode(
                                               x= alt.X('months:N', axis=alt.Axis(labelAngle =0)),
                                               y='tweet_count',
