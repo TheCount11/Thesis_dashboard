@@ -68,15 +68,11 @@ st.set_page_config(layout="wide")
 
 st.title("The EU Migration Crisis on Twitter")
 
-st.write("")
-
-st.write("")
 st.write("""On 2nd Septermber, 2015 the body of a three-year-old Syrian boy washed up near Bodrum, Turkey. This incident is largely held to be the beginning of the Migration Crisis in EU. Recently, Angela Merkel considered this crisis to be one of the most difficult for her to deal with during her 16 year tenure. 
 
 This crisis has put some of the best and worst attributes of human society at the forefront. Not only, do we see this on newspapers and televisions, but now more so on Twitter. Ever since the Arab Spring movement, Twitter has been the social network for socio-political issues to be expressed. Official announcement from heads of states and CEO's are covered on Twitter which are in turn covered by journalists and newspapers. However, also ordinary people increasingly take to Twitter to express their opinions. This is why, tweets have been chosen to get a feel for the public perception during the EU Migration Crisis.  
 """)
-st.write("")
-st.write("")
+
 with st.beta_expander('Explore the Facets'):
 
         with st.beta_container(): 
@@ -280,18 +276,7 @@ with st.beta_expander('Explore Events with the Facets'):
 
             dashboard(lang_choice[lan],peak)
 
-            st.write("### **Some of the significant events captured on Twitter in German**")
-            st.empty() 
-            st.empty()
-            event_german_path = Path(__file__).parents[0]/ 'data' / 'german_tweets.jpeg'
-            st.image(str(event_german_path))
-
-            st.write("### **Some of the significant events captured on Twitter in English**")
-            st.empty() 
-            st.empty()
-            event_english_path = Path(__file__).parents[0]/ 'data' / 'english_tweets.jpeg'
-            st.image(str(event_english_path))
-
+            
 with st.beta_expander("Learn more"):
     st.write("To get a better idea of the facets presented here and of Location Based Social Networks in general feel free to check this link. ")	
     st.write("[Facets - LBSN Structure](https://lbsn.vgiscience.org/structure/facets/)")
