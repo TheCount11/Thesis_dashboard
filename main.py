@@ -82,10 +82,10 @@ with st.beta_expander('Explore the Spatial Facet'):
            st.write("""Twitter data is incredibly multi-faceted. This means that the raw data comes with many kinds of information and to make sense of them, we have to look at the various facets both singularly and simultaneously. So let's begin by looking at some of the facets signularly.""") 
            st.subheader("Spatial")	
            st.write("""The spatial distribution of the tweets can be visualized on a map to see where the tweets come from.""")
-           st.subheader("Spatial") 
-           options = np.insert(df['post_language'].unique(),0,'None')
+        
+           options = np.insert(df['post_language'].unique(),0,'all')
            lang = st.selectbox('select a language', options, key = "lang")
-           if lang == 'None':
+           if lang == 'all':
            	data = df
            else:
              data = df[df['post_language'] == lang]	
