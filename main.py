@@ -69,7 +69,7 @@ st.set_page_config(layout="wide")
 st.title("The EU Migration Crisis on Twitter")
 file_ap = Path(__file__).parents[0]/ 'data' / '54875226_403.jpg'
 st.image(str(file_ap))
-st.markdown("*Refugees fleeing as Moria burns in September, 2020. Credits to Associated Press Photos/Petros Giannakouris*")
+st.markdown("*Refugees fleeing as Moria burns in September, 2020. Photo credits to Associated Press Photos/Petros Giannakouris*")
 """On 2nd Septermber, 2015 the body of a three-year-old Syrian boy washed up near Bodrum, Turkey. This incident is largely held to be the beginning of the Migration Crisis in EU. Recently, Angela Merkel considered this crisis to be one of the most difficult for her to deal with during her 16 year tenure. 
 
 This crisis has put some of the best and worst attributes of human society at the forefront. Not only, do we see this on newspapers and televisions, but now more so on Twitter. Ever since the Arab Spring movement, Twitter has been the social network for socio-political issues to be expressed. Official announcement from heads of states and CEO's are covered on Twitter which are in turn covered by journalists and newspapers. However, also ordinary people increasingly take to Twitter to express their opinions. This is why, tweets have been chosen to get a feel for the public perception during the EU Migration Crisis.  
@@ -181,7 +181,7 @@ Hover the mouse pointer over the charts for exact counts""")
 with st.beta_expander('Explore Events with the Facets'):
             with st.beta_container():
              st.subheader("Using the facets for event detection") 
-             st.write("""Tweets are not made in vacuum. They are quite related to things happening around us. The facets independently can only give us a part of the full picture. When facets are combined, by selecting specific timeframes, locations and topics : events are brought in focus. Events on twitter give us a link and allow us to explore the differences and similarities between society and social media. For example, the default event (the one shown before you choose anything) being shown is the Muslim Ban brought into force by Donald Trump. """)
+             st.write("""Tweets are not made in vacuum. They are quite related to things happening around us. The facets independently can only give us a part of the full picture. When facets are combined, by selecting specific timeframes, locations and topics : events are brought in focus. Events on twitter give us a link and allow us to explore the differences and similarities between society and social media. For example, the default event (the one shown before you choose anything) being shown is the Muslim Ban brought into force by Donald Trump. Note how all the facets explored individually are combined for event detection. """)
              
              lang_choice = {'English' : 'en',
                            'Spanish' : 'es',
