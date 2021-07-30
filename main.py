@@ -78,11 +78,12 @@ This crisis has put some of the best and worst attributes of human society at th
 with st.beta_expander('Explore the Facets'):
 
         with st.beta_container(): 
+           
            st.write("""Twitter data is incredibly multi-faceted. This means that the raw data comes with many kinds of information and to make sense of them, we have to look at the various facets both singularly and simultaneously. So let's begin by looking at some of the facets signularly.""") 
            st.subheader("Spatial")	
            st.write("""The spatial distribution of the tweets can be visualized on a map to see where the tweets come from.""")
-        
-           options = np.insert(df['post_language'].unique(),0,'None')
+           st.subheader("Spatial") 
+           options = np.insert(df['post_language'].unique(),1,'None')
            lang = st.selectbox('select a language', options, key = "lang")
            if lang == 'None':
            	data = df
