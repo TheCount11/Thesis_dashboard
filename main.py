@@ -69,7 +69,7 @@ st.set_page_config(layout="wide")
 st.title("The EU Migration Crisis on Twitter")
 file_ap = Path(__file__).parents[0]/ 'data' / '54875226_403.jpg'
 st.image(str(file_ap))
-st.markdown("*Refugees fleeing as Moria burns in September,2020. Credits to Associated Press Photos/Petros Giannakouris*")
+st.markdown("*Refugees fleeing as Moria burns in September, 2020. Credits to Associated Press Photos/Petros Giannakouris*")
 """On 2nd Septermber, 2015 the body of a three-year-old Syrian boy washed up near Bodrum, Turkey. This incident is largely held to be the beginning of the Migration Crisis in EU. Recently, Angela Merkel considered this crisis to be one of the most difficult for her to deal with during her 16 year tenure. 
 
 This crisis has put some of the best and worst attributes of human society at the forefront. Not only, do we see this on newspapers and televisions, but now more so on Twitter. Ever since the Arab Spring movement, Twitter has been the social network for socio-political issues to be expressed. Official announcement from heads of states and CEO's are covered on Twitter which are in turn covered by journalists and newspapers. However, also ordinary people increasingly take to Twitter to express their opinions. This is why, tweets have been chosen to get a feel for the public perception during the EU Migration Crisis.  
