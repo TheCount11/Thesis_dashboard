@@ -75,7 +75,7 @@ st.markdown("*Refugees fleeing as Moria burns in September, 2020. Photo credits 
 This crisis has put some of the best and worst attributes of human society at the forefront. Not only, do we see this on newspapers and televisions, but now more so on Twitter. Ever since the Arab Spring movement, Twitter has been the social network for socio-political issues to be expressed. Official announcement from heads of states and CEO's are covered on Twitter which are in turn covered by journalists and newspapers. However, also ordinary people increasingly take to Twitter to express their opinions. This is why, tweets have been chosen to get a feel for the public perception during the EU Migration Crisis.  
 """  
 
-with st.beta_expander('Explore the Spatial Facet'):
+with st.beta_expander('Explore the Facets'):
 
         with st.beta_container(): 
            
@@ -116,7 +116,7 @@ with st.beta_expander('Explore the Spatial Facet'):
 
 
                  ),use_container_width = True)
-with st.beta_expander('Explore the Temporal Facet'):
+
         with st.beta_container():
             st.subheader("Temporal")      
             st.write("""As the name suggests, the temporal facet is about using the timestamps associated with tweets and exploring their patterns. Here the distribution of tweets over the years and also the sub-distribution within each year is shown with the bar charts. 
@@ -150,7 +150,7 @@ Hover the mouse pointer over the charts for exact counts""")
                                               tooltip = ['tweet_count']
                                               ).properties(width =500)
                     st.altair_chart(c2)
-with st.beta_expander('Explore the Topical Facet'):                    
+                   
             st.subheader("Topical") 
             st.write("")
             st.write("This facet deals with the 'what' of the tweets. For our dataset, the broader topic would be the migration crisis. But even there, one can find distinct topics being raised on Twitter. Hashtags are a great indicator of topics, and here we are using hashtags with a novel metric : typicality.")
