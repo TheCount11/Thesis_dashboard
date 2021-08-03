@@ -74,6 +74,15 @@ st.markdown("*Refugees fleeing as Moria burns in September, 2020. Photo credits 
 
 This crisis has put some of the best and worst attributes of human society at the forefront. Not only, do we see this on newspapers and televisions, but now more so on Twitter. Ever since the Arab Spring movement, Twitter has been the social network for socio-political issues to be expressed. Official announcement from heads of states and CEO's are covered on Twitter which are in turn covered by journalists and newspapers. However, also ordinary people increasingly take to Twitter to express their opinions. This is why, tweets have been chosen to get a feel for the public perception during the EU Migration Crisis.  
 """  
+with st.beta_expander('Note'):
+    st.write("The spatial facet involves using latitude, longitude data to make visualizations. Hence, it might seem strange to users to see the 'select a language' selection within the spatial facet. This has been done because of two reasons. The first reason involves the image below")
+    file_path = Path(__file__).parents[0]/ 'data' / 'lang-loc-uk.jpeg'
+    st.image(str(file_path))
+    st.write("""The image shows the number of tweets throught the 5 years of the datset when they are filtered based on language (post_language) and country (post_location) for English and the UK. 41% of all tweets is in English. Clearly, there is very little difference between using language or country to filter the data. In other words, people tweeting in Italian are confined (largely) to Italy. 
+
+The second reason for using languages is due to the fact that there would be more tweets in absolute number if the data is filtered with languages instead of countries. This is because of erroneous longitude and latitude coordinates, which sometimes does not fall within the border of any country but are otherwise fine for the purpose of data analysis. Hence, to keep tweets (around 16,000) of them, the Spatial facet uses languages and not countries for filtering and analysing the data. 
+   """)
+
 
 with st.beta_expander('Explore the Facets'):
 
@@ -192,7 +201,7 @@ with st.beta_expander('Explore Events with the Facets'):
                            'Dutch' : 'nl'}
 
             lan = st.selectbox('select a language', list(lang_choice.keys()), key = "lan")
-            peak = st.selectbox('select a peak number between 1 and 6', [1,2,3,4,5,6], key = "peak")
+            peak = st.selectbox('select a peak number between 1(most tweets) and 6(lesser tweet count than 1, but not the least)', [1,2,3,4,5,6], key = "peak")
 
             col5, col6 = st.beta_columns(2)
             col7, col8 = st.beta_columns(2)
@@ -223,7 +232,7 @@ with st.beta_expander('Explore Events with the Facets'):
 
              with col6:
 
-                     st.write("Wordcloud of hashtags used during this time (Topical)")
+                     st.write("Wordcloud of hashtags based on their frequency of use used during this peak (Topical)")
                      sns.set_theme(style = "white", font= "serif")
                      fig2, ax2 = plt.subplots()
                      wordcloud = generate_wordcloud(dates.index[peak-1],userdf)
@@ -278,12 +287,26 @@ with st.beta_expander('Explore Events with the Facets'):
 
 
             dashboard(lang_choice[lan],peak)
+            st.write("### **Some of the significant events captured on Twitter in German**")
+            st.empty() 
+            st.empty()
+            event_german_path = Path(__file__).parents[0]/ 'data' / 'german_tweets.jpeg'
+            st.image(str(event_german_path))
+
+            st.write("### **Some of the significant events captured on Twitter in English**")
+            st.empty() 
+            st.empty()
+            event_english_path = Path(__file__).parents[0]/ 'data' / 'english_tweets.jpeg'
+            st.image(str(event_english_path))
 
             
 with st.beta_expander("Learn more"):
     st.write("To get a better idea of the facets presented here and of Location Based Social Networks in general feel free to check this link. ")	
     st.write("[Facets - LBSN Structure](https://lbsn.vgiscience.org/structure/facets/)")
-    
+    st.write("Publication on [Typicality](https://www.mdpi.com/2220-9964/10/6/407)")
+    st.write("Publication on [Facets](https://www.tandfonline.com/doi/full/10.1080/13658816.2018.1546390)")
+    st.markdown("*Created by Sagnik Mukherjee for his Master's Thesis in Cartography, 2021*")
+	    
 
 
 
