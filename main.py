@@ -168,7 +168,7 @@ Hover the mouse pointer over the charts for exact counts""")
                                  Here the subset is time (Years). And the measured attribute is hashtag(s).""")
             st.write ("""Positive typicality indicates that the hashtag was popular during the year displayed on the x axis.
                           Negative typicality indicates the opposite""")
-            st.write("Hover over the columns for more information ")              
+            st.write("The chart is a stacked bar chart. You can hover over the columns for exact values for each hashtag.")              
             file_typ = Path(__file__).parents[0]/ 'data/typicality-30.csv'
             typ_df = pd.read_csv(file_typ)
 
