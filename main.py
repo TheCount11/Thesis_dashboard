@@ -91,7 +91,7 @@ with st.beta_expander('Explore the Facets'):
            st.write("""Twitter data is incredibly multi-faceted. This means that the raw data comes with many kinds of information and to make sense of them, we have to look at the various facets both singularly and simultaneously. So let's begin by looking at some of the facets signularly.""") 
            st.subheader("Spatial")	
            st.write("""The spatial distribution of the tweets can be visualized on a map to see where the tweets come from.""")
-        
+           st.write("Hover over the points for more information")       
            options = np.insert(df['post_language'].unique(),0,'all')
            lang = st.selectbox('select a language', options, key = "lang")
            if lang == 'all':
@@ -168,6 +168,7 @@ Hover the mouse pointer over the charts for exact counts""")
                                  Here the subset is time (Years). And the measured attribute is hashtag(s).""")
             st.write ("""Positive typicality indicates that the hashtag was popular during the year displayed on the x axis.
                           Negative typicality indicates the opposite""")
+            st.write("Hover over the columns for more information ")              
             file_typ = Path(__file__).parents[0]/ 'data/typicality-30.csv'
             typ_df = pd.read_csv(file_typ)
 
@@ -201,7 +202,7 @@ with st.beta_expander('Explore Events with the Facets'):
                            'Dutch' : 'nl'}
 
             lan = st.selectbox('select a language', list(lang_choice.keys()), key = "lan")
-            peak = st.selectbox('select a peak number between 1(most tweets) and 6(lesser tweet count than 1, but not the least)', [1,2,3,4,5,6], key = "peak")
+            peak = st.selectbox('select a peak number between 1 (most number oftweets) and 6 (lesser number of tweets than 1, but not the least number of tweets)', [1,2,3,4,5,6], key = "peak")
 
             col5, col6 = st.beta_columns(2)
             col7, col8 = st.beta_columns(2)
