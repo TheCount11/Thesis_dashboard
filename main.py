@@ -202,7 +202,7 @@ with st.beta_expander('Explore Events with the Facets'):
                            'Dutch' : 'nl'}
 
             lan = st.selectbox('select a language', list(lang_choice.keys()), key = "lan")
-            peak = st.selectbox('select a peak number between 1 (most number oftweets) and 6 (lesser number of tweets than 1, but not the least number of tweets)', [1,2,3,4,5,6], key = "peak")
+            peak = st.selectbox('select a peak number between 1 (most number of tweets) and 6 (lesser number of tweets than 1, but not the least number of tweets)', [1,2,3,4,5,6], key = "peak")
 
             col5, col6 = st.beta_columns(2)
             col7, col8 = st.beta_columns(2)
